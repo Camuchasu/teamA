@@ -91,8 +91,9 @@ void Init(void)
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
 	// 平山
-	//ADD_RESOURCE("Player", CImage::CreateImage("Image/Idle01.png", player_anim_data, 32, 32));
-
+	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png", Player::ANIM_DATA,32,32));
+	new Player(
+		CVector3D(0.5f, 0.0f, 0.0f));
 
 
 

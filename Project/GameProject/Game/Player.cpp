@@ -12,40 +12,45 @@ static TexAnim _idle[] = {
 };
 
 static TexAnim _Attack[] = {
-	{4,8},
-	{5,8},
-};
-
-static TexAnim _Jump[] = {
-	{0,8},
-	{1,8},
-	{2,8},
-	{3,8},
-};
-static TexAnim _Damage[] = {
 	{6,8},
 	{7,8},
 };
+
+static TexAnim _Jump[] = {
+	{2,8},
+	{3,8},
+	{4,8},
+	{5,8},
+};
+static TexAnim _Damage[] = {
+	{8,8},
+	{9,8},
+};
 TexAnimData Player::ANIM_DATA[] = {
-	ANIMDATA(_idle)
+	ANIMDATA(_idle),
+	ANIMDATA(_Attack),
+	ANIMDATA(_Jump),
+	ANIMDATA(_Damage),
 };
 
 
 
 Player::Player(const CVector3D& pos)
 	: ObjectBase(pos)
-	, mp_image(nullptr)
+	, m_stateStep(0)
 {
-
+	mp_image = COPY_RESOURCE("Player", CImage);
+	mp_image.ChangeAnimation(0);
+	mp_image.SetSize(128, 128);
 	// プレイヤーの画像を読み込み
-	mp_image = CImage::CreateImage
+/*	mp_image = CImage::CreateImage
 	(
-		"Idle.png",	// 画像ファイルのパス
+		"Idle1.png",	// 画像ファイルのパス
 		ANIM_DATA,		// アニメーションのデータ
 		32,32	// 1コマの幅と高さ
 	);
 	mp_image->ChangeAnimation((int)EAnimType::Idle);
-	mp_image->SetCenter(16,32);
+	mp_image->SetCenter(16,16);*/
 }
 Player::~Player()
 {
@@ -53,12 +58,98 @@ Player::~Player()
 
 void Player::Update()
 {
-	mp_image->UpdateAnimation();
+	StateIdle();
+	mp_image.UpdateAnimation();
 }
 
 void Player::Render()
 {
-	mp_image->SetPos(CalcScreenPos());
-	mp_image->Draw();
+	mp_image.SetPos(CalcScreenPos());
+	mp_image.Draw();
 }
+
+void Player::ChangeState(EState state)
+{
+}
+
+bool Player::UpdateMove()
+{
+	bool isMove = false;
+	// 左キーを押している間
+	if (HOLD(CInput::eLeft))
+	{
+		// 左方向へ移動
+		m_pos.x -= MOVE_SPEED_X;
+		mp_image.SetFlipH(true);
+		isMove = true;
+	}
+	// 右キーを押している間
+	else if (HOLD(CInput::eRight))
+	{
+		// 右方向へ移動
+		m_pos.x += MOVE_SPEED_X;
+		mp_image.SetFlipH(false);
+		isMove = true;
+	}
+	// 上キーを押している間
+	if (HOLD(CInput::eUp))
+	{
+		// 奥方向へ移動
+		m_pos.z -= MOVE_SPEED_Z;
+		isMove = true;
+	}
+	// 下キーを押している間
+	else if (HOLD(CInput::eDown))
+	{
+		// 手前方向へ移動
+		m_pos.z += MOVE_SPEED_Z;
+		isMove = true;
+	}
+
+
+	return isMove;
+}
+
+void Player::StateIdle()
+{
+	// 移動処理
+	bool isMove = UpdateMove();
+
+	// 移動状態に合わせて、アニメーションを切り替え
+	//EState anim = isMove ? EState::Attack : EState::Idle;
+	//mp_image.ChangeAnimation((int)anim);
+
+	// [Z]キーでジャンプ状態へ移行
+	if (PUSH(CInput::eButton1))
+	{
+		ChangeState(EState::Jump);
+	}
+	// [X]キーで攻撃状態へ移行
+	else if (PUSH(CInput::eButton2))
+	{
+		ChangeState(EState::Attack);
+	}
+}
+
+void Player::StateAttack()
+{
+	// ステップごとに処理を切り替え
+	switch (m_stateStep)
+	{
+		// ステップ0：攻撃アニメーションに切り替え
+	case 0:
+		mp_image.ChangeAnimation((int)EState::Attack, false);
+		m_stateStep++;
+		break;
+		// ステップ1：アニメーション終了待ち
+	case 1:
+		// 攻撃アニメーションが終了したら、待機状態へ移行
+		if (mp_image.CheckAnimationEnd())
+		{
+			ChangeState(EState::Idle);
+		}
+		break;
+	}
+}
+
 
