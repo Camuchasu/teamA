@@ -73,7 +73,7 @@ void Init(void)
 	CCamera::GetCamera()->LookAt(CVector3D(5, 5, 5),
 		CVector3D(0, 0, 0),
 		CVector3D(0.0, 1.0, 0.0));
-
+	//データフォルダーをカレントフォルダーにする
 	SetCurrentDirectory("data");
 
 
