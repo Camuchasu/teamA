@@ -104,7 +104,7 @@ void Init(void)
 
 
 	//èºë∫
-	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/EnemyIdle1.png", enemy_anim_data,32 , 32));
+	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
 
 
 
@@ -117,7 +117,7 @@ void Init(void)
 
 	// ÉXÉâÉCÉÄÇê∂ê¨
 	new Enemy(0,
-		CVector3D(SCREEN_WIDTH * 0.75f, 0.0f, 0.0f));
+		CVector3D(600, 0.0f, 0.0f));
 
 
 
