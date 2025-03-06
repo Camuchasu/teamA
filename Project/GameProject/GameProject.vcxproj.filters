@@ -5,9 +5,6 @@
     <ClInclude Include="Game\Player.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Map.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Enemy.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -23,16 +20,19 @@
     <ClInclude Include="Game\Result.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Base\Base.h">
-      <Filter>Base</Filter>
+    <ClInclude Include="Task\TaskManager.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\Task.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\ObjectBase.h">
+      <Filter>Task</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game\Player.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Map.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Enemy.cpp">
@@ -50,16 +50,22 @@
     <ClCompile Include="Game\Result.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Base\Base.cpp">
-      <Filter>Base</Filter>
+    <ClCompile Include="Task\TaskManager.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\Task.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\ObjectBase.cpp">
+      <Filter>Task</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Base">
-      <UniqueIdentifier>{56a889c9-8807-467e-84d0-da67b494a1c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{452bedc0-a987-4798-95e8-3ea66a79882d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{c9fda646-c60e-4ea0-85fa-3d72d1cff64f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
