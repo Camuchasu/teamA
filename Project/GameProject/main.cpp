@@ -1,7 +1,7 @@
 #include "Task/TaskManager.h"
 #include "Game/Player.h"
-
-
+#include "Game/Enemy.h"
+#include "Task/ObjectBase.h"
 
 void MainLoop(void) {
 	//--------------------------------------------------------------
@@ -90,10 +90,33 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
+	// 平山
 	//ADD_RESOURCE("Player", CImage::CreateImage("Image/Idle01.png", player_anim_data, 32, 32));
 
 
 
+
+
+
+
+
+
+
+	//松村
+	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/EnemyIdle1.png", enemy_anim_data,32 , 32));
+
+
+
+
+
+
+
+
+
+
+	// スライムを生成
+	new Enemy(0,
+		CVector3D(SCREEN_WIDTH * 0.75f, 0.0f, 0.0f));
 
 
 
