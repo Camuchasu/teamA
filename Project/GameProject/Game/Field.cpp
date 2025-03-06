@@ -1,4 +1,4 @@
-#include "Field.h"
+/*#include "Field.h"
 
 Field::Field()
 {
@@ -19,4 +19,4 @@ void Field::Draw()
 	m_foreground.SetRect(sc, 0, sc + 1280, 720);
 	m_foreground.Draw();
 
-}
+}*/

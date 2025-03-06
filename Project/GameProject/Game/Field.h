@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 
 class Field{
 private:
@@ -24,3 +24,4 @@ public:
 		return m_ground_y;
 	}
 };
+*/

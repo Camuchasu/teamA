@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player(const CVector2D)//:Base(eType_Player)
+/*Player(const CVector2D)//:Base(eType_Player)
 {
 };
 
@@ -14,4 +14,4 @@ void Collision()
 
 void Draw()
 {
-}
+}*/
