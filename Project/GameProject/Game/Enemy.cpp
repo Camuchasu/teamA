@@ -8,12 +8,12 @@
 TexAnimData enemy_anim_data[] =
 {
 	{
-		new TexAnim[4]
+		new TexAnim[2]
 		{
 			{ 0, 6}, { 1, 6},
-			{ 2, 6}, { 3, 6},
+			
 		},
-		4
+		2
 	},
 	{
 		new TexAnim[5]
@@ -34,10 +34,11 @@ Enemy::Enemy(int type, const CVector3D& pos)
 
 	// ƒXƒ‰ƒCƒ€‚Ì‰æ‘œ‚ğ“Ç‚İ‚İ
 	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/EnemyIdle1.png";
+	if (m_type == 0) imagePath = "Image/Enemy.png";
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.ChangeAnimation(0);
-
+	m_img.SetSize(160, 160);
+	m_img.SetCenter(80,160);
 }
 
 Enemy::~Enemy()
@@ -110,7 +111,8 @@ void Enemy::Update()
 // •`‰æˆ—
 void Enemy::Render()
 {
+	ObjectBase::RenderShadow();
 	//ˆÊ’uİ’è
-	//m_img.SetPos(GetScreenPos(m_pos));
+	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
 }
