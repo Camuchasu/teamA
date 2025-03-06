@@ -1,5 +1,5 @@
 #pragma once
-#include "../Base/Base.h"
+
 //‰¡
 #define MAP_WIDTH  150  //250   
 //c
@@ -7,7 +7,7 @@
 //‘å‚«‚³
 #define MAP_TIP_SIZE  150 //128
 
-class Map : public Base {
+class Map {
 private:
 	CImage m_background;
 	CImage m_haikei;
