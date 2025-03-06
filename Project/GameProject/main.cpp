@@ -90,7 +90,7 @@ void Init(void)
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é
 	//-----------------------------------------------------
-	ADD_RESOURCE("Player", CImage::CreateImage("Image/Idle01.png", player_anim_data, 32, 32));
+	//ADD_RESOURCE("Player", CImage::CreateImage("Image/Idle01.png", player_anim_data, 32, 32));
 
 
 
