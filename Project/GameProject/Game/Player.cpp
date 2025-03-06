@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player(const CVector2D)
+Player(const CVector2D)//:Base(eType_Player)
 {
 };
 
