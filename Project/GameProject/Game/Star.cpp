@@ -37,8 +37,8 @@ Star::Star(int type, const CVector3D& pos)
 	if (m_type == 0) imagePath = "Image/Star.png";
 	m_img = COPY_RESOURCE("Star", CImage);
 	m_img.ChangeAnimation(0);
-	m_img.SetSize(160, 160);
-	m_img.SetCenter(80, 160);
+	m_img.SetSize(100, 100);
+	m_img.SetCenter(50, 100);
 }
 
 Star::~Star()
@@ -105,6 +105,7 @@ void Star::Render()
 	//‰e‚ğ•t‚¯‚é‚±‚Æ‚ª‚Å‚«‚é
 	ObjectBase::RenderShadow();
 	//ˆÊ’uİ’è
-	m_img.SetPos(960,540);
+	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
+	
 }

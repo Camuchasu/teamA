@@ -115,7 +115,7 @@ void Init(void)
 
 	//èºë∫
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
-	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 32, 32));
+	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
 
 
 

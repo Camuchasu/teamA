@@ -42,6 +42,7 @@ Player::Player(const CVector3D& pos)
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(128, 128);
+	mp_image.SetCenter(64, 140);
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
 	(
@@ -64,6 +65,8 @@ void Player::Update()
 
 void Player::Render()
 {
+	//影を付けることができる
+	ObjectBase::RenderShadow();
 	mp_image.SetPos(CalcScreenPos());
 	mp_image.Draw();
 }
