@@ -60,6 +60,7 @@ Player::~Player()
 void Player::Update()
 {
 	StateIdle();
+	m_pos.x += 1;
 	mp_image.UpdateAnimation();
 }
 
@@ -87,25 +88,25 @@ bool Player::UpdateMove()
 		isMove = true;
 	}
 	// 右キーを押している間
-	else if (HOLD(CInput::eRight))
+	/*else if (HOLD(CInput::eRight))
 	{
 		// 右方向へ移動
 		m_pos.x += MOVE_SPEED_X;
 		mp_image.SetFlipH(false);
 		isMove = true;
-	}
+	}*/
 	// 上キーを押している間
-	if (HOLD(CInput::eUp))
+	if (PUSH(CInput::eUp))
 	{
 		// 奥方向へ移動
-		m_pos.z -= MOVE_SPEED_Z;
+		m_pos.z -= 100;
 		isMove = true;
 	}
 	// 下キーを押している間
-	else if (HOLD(CInput::eDown))
+	else if (PUSH(CInput::eDown))
 	{
 		// 手前方向へ移動
-		m_pos.z += MOVE_SPEED_Z;
+		m_pos.z += 100;
 		isMove = true;
 	}
 
