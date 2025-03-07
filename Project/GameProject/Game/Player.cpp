@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <Task/ObjectBase.h>
+#include "Game/Bullet.h"
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
@@ -42,7 +43,7 @@ Player::Player(const CVector3D& pos)
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(128, 128);
-	mp_image.SetCenter(64, 140);
+	mp_image.SetCenter(64,140);
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
 	(
@@ -88,6 +89,7 @@ void Player::Render()
 	ObjectBase::RenderShadow();
 	mp_image.SetPos(CalcScreenPos());
 	mp_image.Draw();
+	
 }
 
 void Player::ChangeState(EState state)
@@ -148,6 +150,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
+		new Bullet(CVector3D(m_pos));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		m_stateStep++;
 		break;
@@ -156,7 +159,12 @@ void Player::StateAttack()
 		// 攻撃アニメーションが終了したら、待機状態へ移行
 		if (mp_image.CheckAnimationEnd())
 		{
-			ChangeState(EState::Idle);
+			if (m_isGrounded == false) {
+				ChangeState(EState::Jump);
+			}
+			else {
+				ChangeState(EState::Idle);
+			}
 		}
 		break;
 	}
@@ -172,12 +180,19 @@ void Player::StateJump()
 	case 0:
 		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
 		// 接地状態を解除する
-		m_moveSpeedY = JUMP_SPEED;
+		if (EState::Attack, true)
+		{
+			m_moveSpeedY = JUMP_SPEED;
+		}
 		m_isGrounded = false;
 		m_stateStep++;
 		break;
 		// ステップ1：ジャンプ終了
 	case 1:
+		if (PUSH(CInput::eButton2))
+		{
+			ChangeState(EState::Attack);
+		}
 		// 接地したら、待機状態へ移行
 		if (m_isGrounded)
 		{
