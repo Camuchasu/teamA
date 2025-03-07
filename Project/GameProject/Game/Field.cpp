@@ -1,8 +1,8 @@
-/*#include "Field.h"
-
-Field::Field()
+#include "Field.h"
+#include "../Task/ObjectBase.h"
+/*Field::Field()
 {
-	m_Sky = COPY_RESOURCE("Sky", CImage);
+	/*m_Sky = COPY_RESOURCE("Sky", CImage);
 	m_town = COPY_RESOURCE("Town", CImage);
 	m_foreground = COPY_RESOURCE("ForeGround", CImage);
 	//ínñ ÇÃçÇÇ≥

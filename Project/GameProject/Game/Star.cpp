@@ -32,7 +32,7 @@ Star::Star(int type, const CVector3D& pos)
 {
 	//m_hp = 200;
 
-	// ƒJƒ‰ƒX‚Ì‰æ‘œ‚ğ“Ç‚İ‚İ
+	// ¯‚Ì‰æ‘œ‚ğ“Ç‚İ‚İ
 	std::string imagePath;
 	if (m_type == 0) imagePath = "Image/Star.png";
 	m_img = COPY_RESOURCE("Star", CImage);

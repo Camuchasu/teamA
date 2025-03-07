@@ -1,7 +1,7 @@
 #pragma once
-/*
 
-class Field{
+
+/*class Field {
 private:
 	//画像オブジェクト（前景）
 	CImage m_foreground;
@@ -23,5 +23,4 @@ public:
 	float GetGroundY() {
 		return m_ground_y;
 	}
-};
-*/
+};*/

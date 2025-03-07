@@ -3,7 +3,7 @@
 #include "Game/Enemy.h"
 #include "Task/ObjectBase.h"
 #include "Game/Star.h"
-
+#include "Game/Flower.h"
 
 
 
@@ -116,6 +116,7 @@ void Init(void)
 	//松村
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
 	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
+	//ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", enemy_anim_data, 800, 764));
 
 
 
@@ -124,13 +125,13 @@ void Init(void)
 
 
 
-
-	// スライムを生成
+	// カラスを生成
 	new Enemy(0,
 		CVector3D(1800, 0.0f, 0.0f));
 	//星を生成
 	new Star(0,CVector3D(500, 0.0f, 0.0f));
-
+	//花を生成
+//	new Flower(0, CVector3D(700, 0.0f, 0.0f));
 
 
 

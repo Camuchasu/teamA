@@ -15,7 +15,8 @@ public:
 	const CVector3D& GetPos() const;
 	// 座標を設定
 	void SetPos(const CVector3D& pos);
-
+	//スクロール値
+	static CVector2D m_scroll;
 	/// <summary>
 	/// 3次元座標からスクリーン座標（2D）に変換
 	/// </summary>
