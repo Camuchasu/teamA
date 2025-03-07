@@ -1,17 +1,17 @@
-#include "Enemy.h"
+#include "Star.h"
 
 
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
 
-// カラスのアニメーションデータ
-TexAnimData enemy_anim_data[] =
+// 星のアニメーションデータ
+TexAnimData Star_anim_data[] =
 {
 	{
 		new TexAnim[2]
 		{
 			{ 0, 6}, { 1, 6},
-			
+
 		},
 		2
 	},
@@ -26,7 +26,7 @@ TexAnimData enemy_anim_data[] =
 };
 
 // コンストラクタ
-Enemy::Enemy(int type, const CVector3D& pos)
+Star::Star(int type, const CVector3D& pos)
 	: ObjectBase(pos)
 	, m_type(type)
 {
@@ -34,25 +34,19 @@ Enemy::Enemy(int type, const CVector3D& pos)
 
 	// カラスの画像を読み込み
 	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/Enemy.png";
-	m_img = COPY_RESOURCE("Enemy", CImage);
+	if (m_type == 0) imagePath = "Image/Star.png";
+	m_img = COPY_RESOURCE("Star", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(160, 160);
-	m_img.SetCenter(80,160);
+	m_img.SetCenter(80, 160);
 }
 
-Enemy::~Enemy()
+Star::~Star()
 {
-}
-// 死亡処理
-void Enemy::Death()
-{
-	// 死亡状態へ移行
-	ChangeState(EState::Death);
 }
 
 // 現在の状態を切り替え
-void Enemy::ChangeState(EState state)
+void Star::ChangeState(EState state)
 {
 	if (m_state == state) return;
 
@@ -61,22 +55,14 @@ void Enemy::ChangeState(EState state)
 }
 
 // 待機時の更新処理
-void Enemy::StateIdle()
+void Star::StateIdle()
 {
-	//移動量
-	const float move_speed = 6;
-	//移動フラグ
-	bool move_flag = false;
-	//移動量を設定
-	m_pos.x += -move_speed;
-	
-	move_flag = true;
 	// 待機アニメーションを再生
 	m_img.ChangeAnimation((int)EAnimType::Idle);
 }
 
 // 死亡時の更新処理
-void Enemy::StateDeath()
+/*void Star::StateDeath()
 {
 	// ステップごとに処理を切り替え
 	switch (m_stateStep)
@@ -96,17 +82,17 @@ void Enemy::StateDeath()
 		}
 		break;
 	}
-}
+}*/
 
 // 更新処理
-void Enemy::Update()
+void Star::Update()
 {
-	
+
 	// 状態に合わせて、更新処理を切り替える
 	switch (m_state)
 	{
 	case EState::Idle:	StateIdle();	break;
-	case EState::Death:	StateDeath();	break;
+	//case EState::Death:	StateDeath();	break;
 	}
 
 	// イメージに座標を設定して、アニメーションを更新
@@ -114,11 +100,11 @@ void Enemy::Update()
 }
 
 // 描画処理
-void Enemy::Render()
+void Star::Render()
 {
 	//影を付けることができる
 	ObjectBase::RenderShadow();
 	//位置設定
-	m_img.SetPos(CalcScreenPos());
+	m_img.SetPos(960,540);
 	m_img.Draw();
 }

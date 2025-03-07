@@ -2,6 +2,16 @@
 #include "Game/Player.h"
 #include "Game/Enemy.h"
 #include "Task/ObjectBase.h"
+#include "Game/Star.h"
+
+
+
+
+
+
+
+
+
 
 void MainLoop(void) {
 	//--------------------------------------------------------------
@@ -105,7 +115,7 @@ void Init(void)
 
 	//èºë∫
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
-
+	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 32, 32));
 
 
 
@@ -117,9 +127,9 @@ void Init(void)
 
 	// ÉXÉâÉCÉÄÇê∂ê¨
 	new Enemy(0,
-		CVector3D(600, 0.0f, 0.0f));
-
-
+		CVector3D(1800, 0.0f, 0.0f));
+	//êØÇê∂ê¨
+	new Star(0,CVector3D(500, 0.0f, 0.0f));
 
 
 
