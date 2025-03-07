@@ -41,7 +41,8 @@ private:
 	// 待機時の更新処理
 	void StateIdle();
 	void StateAttack();
+	void StateJump();
 	
-	
+	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像
 };

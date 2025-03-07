@@ -103,7 +103,7 @@ void Init(void)
 	// •½ŽR
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png", Player::ANIM_DATA,32,32));
 	new Player(
-		CVector3D(0.5f, 0.0f, 0.0f));
+		CVector3D(200.0f, 0.0f, 0.0f));
 
 
 

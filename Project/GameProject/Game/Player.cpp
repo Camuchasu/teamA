@@ -3,8 +3,8 @@
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
-#define JUMP_SPEED 15.0f	// ジャンプ速度
-#define GRAVITY -1.0f		// 重力
+#define JUMP_SPEED 10.0f	// ジャンプ速度
+#define GRAVITY -0.1f		// 重力
 
 static TexAnim _idle[] = {
 	{0,8},
@@ -59,9 +59,27 @@ Player::~Player()
 
 void Player::Update()
 {
-	StateIdle();
-	m_pos.x += 1;
+	switch (m_state)
+	{
+	case EState::Idle:		StateIdle();	break;
+	case EState::Attack:	StateAttack();	break;
+	case EState::Jump:	    StateJump();	break;
+	}
+	m_pos.x += 1.2;
 	mp_image.UpdateAnimation();
+
+	// Y軸（高さ）の移動を座標に反映
+	m_pos.y += m_moveSpeedY;
+	m_moveSpeedY += GRAVITY;	// Y軸の移動速度に重力を加算
+	// 地面より下にいくと
+	if (m_pos.y <= 0.0f)
+	{
+		// 地面の座標へ戻す
+		m_pos.y = 0.0f;
+		m_moveSpeedY = 0.0f;
+		m_isGrounded = true;
+	}
+
 }
 
 void Player::Render()
@@ -74,42 +92,34 @@ void Player::Render()
 
 void Player::ChangeState(EState state)
 {
+	if (m_state == state) return;
+
+	m_state = state;
+	m_stateStep = 0;
 }
 
 bool Player::UpdateMove()
 {
 	bool isMove = false;
-	// 左キーを押している間
-	if (HOLD(CInput::eLeft))
-	{
-		// 左方向へ移動
-		m_pos.x -= MOVE_SPEED_X;
-		mp_image.SetFlipH(true);
-		isMove = true;
-	}
-	// 右キーを押している間
-	/*else if (HOLD(CInput::eRight))
-	{
-		// 右方向へ移動
-		m_pos.x += MOVE_SPEED_X;
-		mp_image.SetFlipH(false);
-		isMove = true;
-	}*/
-	// 上キーを押している間
+	
 	if (PUSH(CInput::eUp))
 	{
-		// 奥方向へ移動
 		m_pos.z -= 100;
 		isMove = true;
+		if (m_pos.z <= -300)
+		{
+			m_pos.z += 100;
+		}
 	}
-	// 下キーを押している間
 	else if (PUSH(CInput::eDown))
 	{
-		// 手前方向へ移動
 		m_pos.z += 100;
 		isMove = true;
+		if (m_pos.z > 100)
+		{
+			m_pos.z -= 100;
+		}
 	}
-
 
 	return isMove;
 }
@@ -118,21 +128,17 @@ void Player::StateIdle()
 {
 	// 移動処理
 	bool isMove = UpdateMove();
+	mp_image.ChangeAnimation((int)EState::Idle, true);
 
-	// 移動状態に合わせて、アニメーションを切り替え
-	//EState anim = isMove ? EState::Attack : EState::Idle;
-	//mp_image.ChangeAnimation((int)anim);
-
-	// [Z]キーでジャンプ状態へ移行
-	if (PUSH(CInput::eButton1))
+	if (PUSH(CInput::eButton5))
 	{
 		ChangeState(EState::Jump);
 	}
-	// [X]キーで攻撃状態へ移行
-	else if (PUSH(CInput::eButton2))
+	if (PUSH(CInput::eButton2))
 	{
 		ChangeState(EState::Attack);
 	}
+	
 }
 
 void Player::StateAttack()
@@ -154,6 +160,35 @@ void Player::StateAttack()
 		}
 		break;
 	}
+	
+}
+
+void Player::StateJump()
+{
+	// ステップごとに処理を切り替え
+	switch (m_stateStep)
+	{
+		// ステップ0：ジャンプ開始
+	case 0:
+		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
+		// 接地状態を解除する
+		m_moveSpeedY = JUMP_SPEED;
+		m_isGrounded = false;
+		m_stateStep++;
+		break;
+		// ステップ1：ジャンプ終了
+	case 1:
+		// 接地したら、待機状態へ移行
+		if (m_isGrounded)
+		{
+			ChangeState(EState::Idle);
+		}
+		break;
+	}
+
+	// 移動処理
+	bool isMove = UpdateMove();
+	mp_image.ChangeAnimation((int)EState::Idle);
 }
 
 
