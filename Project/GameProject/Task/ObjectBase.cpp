@@ -1,6 +1,6 @@
 #include "ObjectBase.h"
 #define FIELD_CENTER_Z (SCREEN_HEIGHT * 0.75f)
-
+CVector2D ObjectBase::m_scroll(0, 0);
 // コンストラクタ
 ObjectBase::ObjectBase()
 	: ObjectBase(CVector3D::zero)
