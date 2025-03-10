@@ -133,7 +133,7 @@ void Init(void)
 	//花を生成
 //	new Flower(0, CVector3D(700, 0.0f, 0.0f));
 	//フィールドの生成
-	new Field();
+	new Field(CVector3D(1280,720,136));
 
 
 }

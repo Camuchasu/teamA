@@ -1,26 +1,15 @@
-#pragma once
+#include"../Task/Task.h"
 
-
-class Field {
+class Field :public Task
+{
 private:
-	//画像オブジェクト（前景）
-	CImage m_foreground;
-	//画像オブジェクト（遠景）
-	CImage m_yama;
-	//画像オブジェクト（最遠景）
-	CImage m_Sky;
-	//地面の高さ
-	float m_ground_y;
+    int m_pos;
 public:
-	//コンストラクタ
-	Field();
-	//スクロール値
-	//static CVector2D m_scroll;
-	//描画
-	void Draw();
+    Field(const CVector3D& pos);
 
-	//地面の高さを取得
-	float GetGroundY() {
-		return m_ground_y;
-	}
+    void Update();
+    void Render();
+
+    CImage m_Sky;
+    CImage m_Yama;
 };

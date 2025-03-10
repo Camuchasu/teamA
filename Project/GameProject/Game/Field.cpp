@@ -1,24 +1,24 @@
 #include "Field.h"
 #include "../Task/ObjectBase.h"
-Field::Field()
+Field::Field(const CVector3D& pos)
+    :Task((int)ETaskPrio::Field, 0)
 {
-	m_Sky = COPY_RESOURCE("Sky", CImage);
-	m_yama = COPY_RESOURCE("yama", CImage);
-	//m_foreground = COPY_RESOURCE("ForeGround", CImage);
-	//ínñ ÇÃçÇÇ≥
-	m_ground_y = 540;
+    m_Sky = COPY_RESOURCE("Sky", CImage);
+    m_Yama = COPY_RESOURCE("yama", CImage);
 }
-void Field::Draw()
+void Field::Update()
 {
-	float sc;
-	m_Sky.Draw();
-	//sc = ObjectBase::m_scroll.x / 4;
-	//m_yama.SetRect(sc, 0, sc + 1280, 720);
-	m_yama.SetRect(0,0,1280, 720);
-	m_yama.Draw();
-	//sc = ObjectBase::m_scroll.x;
-	//m_foreground.SetRect(sc, 0, sc + 1280, 720);
-	//m_foreground.SetRect(0, 0, 0 + 1280, 720);
-	//m_foreground.Draw();
 
+}
+
+void Field::Render()
+{
+    float sc;
+    m_Sky.Draw();
+
+    sc = ObjectBase::m_scroll.x / 3;
+    m_Yama.SetRect(sc, 0, sc + 720, 203);
+    m_Yama.Draw();
+    m_Yama.SetSize(720 * 3, 203 * 3);
+    m_Yama.SetPos(0, 450);
 }
