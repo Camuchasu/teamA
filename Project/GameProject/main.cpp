@@ -118,7 +118,7 @@ void Init(void)
 	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower_anim_data, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama.png"));
-	//ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/ForeGround.png"));
+	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka.png"));
 
 
 

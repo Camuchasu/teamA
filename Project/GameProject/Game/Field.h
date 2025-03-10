@@ -12,4 +12,5 @@ public:
 
     CImage m_Sky;
     CImage m_Yama;
+    CImage m_yuka;
 };
