@@ -60,13 +60,14 @@ Player::~Player()
 
 void Player::Update()
 {
+	ObjectBase::m_scroll.x = m_pos.x - 1280/4;
 	switch (m_state)
 	{
 	case EState::Idle:		StateIdle();	break;
 	case EState::Attack:	StateAttack();	break;
 	case EState::Jump:	    StateJump();	break;
 	}
-	m_pos.x += 1.2;
+	m_pos.x += 5;
 	mp_image.UpdateAnimation();
 
 	// Y軸（高さ）の移動を座標に反映
@@ -136,7 +137,7 @@ void Player::StateIdle()
 	{
 		ChangeState(EState::Jump);
 	}
-	if (PUSH(CInput::eButton2))
+	if (PUSH(CInput::eMouseL))
 	{
 		ChangeState(EState::Attack);
 	}
@@ -189,10 +190,11 @@ void Player::StateJump()
 		break;
 		// ステップ1：ジャンプ終了
 	case 1:
-		if (PUSH(CInput::eButton2))
+		if (PUSH(CInput::eMouseL))
 		{
 			ChangeState(EState::Attack);
 		}
+
 		// 接地したら、待機状態へ移行
 		if (m_isGrounded)
 		{
