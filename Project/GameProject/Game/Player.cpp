@@ -4,7 +4,7 @@
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
-#define JUMP_SPEED 10.0f	// ジャンプ速度
+#define JUMP_SPEED 7.0f	// ジャンプ速度
 #define GRAVITY -0.1f		// 重力
 
 static TexAnim _idle[] = {
@@ -180,7 +180,7 @@ void Player::StateJump()
 	case 0:
 		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
 		// 接地状態を解除する
-		if ( true)
+		if (m_isGrounded == true)
 		{
 			m_moveSpeedY = JUMP_SPEED;
 		}
