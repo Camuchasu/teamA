@@ -1,9 +1,9 @@
 #include "Flower.h"
 
 
-#define CHIP_SIZE CVector2D(65.0f, 96.0f)		// 1コマのサイズ
+#define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(65.0f, 96.0f)	// 中心座標
-
+//char Flower
 // 花のアニメーションデータ
 TexAnimData Flower_anim_data[] =
 {
@@ -36,8 +36,8 @@ Flower::Flower(int type, const CVector3D& pos)
 	if (m_type == 0) imagePath = "Image/Flower.png";
 	m_img = COPY_RESOURCE("Flower", CImage);
 	m_img.ChangeAnimation(0);
-	m_img.SetSize(160, 160);
-	m_img.SetCenter(80, 160);
+	m_img.SetSize(80, 80);
+	m_img.SetCenter(40, 80);
 }
 
 Flower::~Flower()

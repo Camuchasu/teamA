@@ -42,8 +42,8 @@ Player::Player(const CVector3D& pos)
 {
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
-	mp_image.SetSize(128, 128);
-	mp_image.SetCenter(64,140);
+	mp_image.SetSize(180, 180);
+	mp_image.SetCenter(90,180);
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
 	(
@@ -151,7 +151,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(CVector3D(m_pos));
+		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		m_stateStep++;
 		break;

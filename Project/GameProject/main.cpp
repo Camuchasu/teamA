@@ -115,7 +115,7 @@ void Init(void)
 	//èºë∫
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
 	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
-	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower_anim_data, 65, 96));
+	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower_anim_data, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama.png"));
 	//ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/ForeGround.png"));
