@@ -180,7 +180,7 @@ void Player::StateJump()
 	case 0:
 		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
 		// 接地状態を解除する
-		if (EState::Attack, true)
+		if ( true)
 		{
 			m_moveSpeedY = JUMP_SPEED;
 		}
