@@ -8,24 +8,24 @@
 #define GRAVITY -0.1f		// èdóÕ
 
 static TexAnim _idle[] = {
-	{0,8},
-	{1,8},
+	{0,10},
+	{1,10},
 };
 
 static TexAnim _Attack[] = {
-	{6,8},
-	{7,8},
+	{8,10},
+	{9,10},
 };
 
 static TexAnim _Jump[] = {
-	{2,8},
-	{3,8},
-	{4,8},
-	{5,8},
+	{4,10},
+	{5,10},
+	{6,10},
+	{7,10},
 };
 static TexAnim _Damage[] = {
-	{8,8},
-	{9,8},
+	{12,10},
+	{13,10},
 };
 TexAnimData Player::ANIM_DATA[] = {
 	ANIMDATA(_idle),
@@ -109,12 +109,20 @@ bool Player::UpdateMove()
 	{
 		m_pos.z -= 174;
 		isMove = true;
+		if (m_pos.z < -313)
+		{
+			m_pos.z += 174;
+		}
 
 	}
 	else if (PUSH(CInput::eDown))
 	{
 		m_pos.z += 174;
 		isMove = true;
+		if (m_pos.z > 209)
+		{
+			m_pos.z -= 174;
+		}
 
 	}
 
