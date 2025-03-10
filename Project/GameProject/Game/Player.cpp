@@ -107,21 +107,15 @@ bool Player::UpdateMove()
 	
 	if (PUSH(CInput::eUp))
 	{
-		m_pos.z -= 100;
+		m_pos.z -= 174;
 		isMove = true;
-		if (m_pos.z <= -300)
-		{
-			m_pos.z += 100;
-		}
+
 	}
 	else if (PUSH(CInput::eDown))
 	{
-		m_pos.z += 100;
+		m_pos.z += 174;
 		isMove = true;
-		if (m_pos.z > 100)
-		{
-			m_pos.z -= 100;
-		}
+
 	}
 
 	return isMove;

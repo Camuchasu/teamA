@@ -47,7 +47,7 @@ CVector2D ObjectBase::CalcScreenPos(bool grounded) const
 	CVector2D ret;
 
 	// X座標はそのまま設定
-	ret.x = m_pos.x;
+	ret.x = m_pos.x - m_pos.z * 0.65;
 	// 通常座標を求める場合
 	if (!grounded)
 	{
@@ -63,6 +63,7 @@ CVector2D ObjectBase::CalcScreenPos(bool grounded) const
 	}
 
 	return ret - m_scroll;
+
 }
 
 // 更新
