@@ -1,10 +1,10 @@
 #include "Flower.h"
 
 
-#define CHIP_SIZE 256		// 1コマのサイズ
-#define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
+#define CHIP_SIZE CVector2D(65.0f, 96.0f)		// 1コマのサイズ
+#define CENTER_POS CVector2D(65.0f, 96.0f)	// 中心座標
 
-// カラスのアニメーションデータ
+// 花のアニメーションデータ
 TexAnimData Flower_anim_data[] =
 {
 	{
@@ -30,12 +30,11 @@ Flower::Flower(int type, const CVector3D& pos)
 	: ObjectBase(pos)
 	, m_type(type)
 {
-	//m_hp = 200;
 
-	// カラスの画像を読み込み
+	// 花の画像を読み込み
 	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/Enemy.png";
-	m_img = COPY_RESOURCE("Enemy", CImage);
+	if (m_type == 0) imagePath = "Image/Flower.png";
+	m_img = COPY_RESOURCE("Flower", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(160, 160);
 	m_img.SetCenter(80, 160);
@@ -112,5 +111,5 @@ void Flower::Render()
 	ObjectBase::RenderShadow();
 	//位置設定
 	m_img.SetPos(CalcScreenPos());
-	//m_img.Draw();
+	m_img.Draw();
 }
