@@ -8,17 +8,14 @@ Field::Field(const CVector3D& pos)
 }
 void Field::Update()
 {
-
+    ObjectBase::m_scroll.x += 5;
 }
 
 void Field::Render()
 {
     float sc;
     m_Sky.Draw();
-
-    sc = ObjectBase::m_scroll.x / 3;
-    m_Yama.SetRect(sc, 0, sc + 720, 203);
+    sc = ObjectBase::m_scroll.x / 2;
+    m_Yama.SetRect(sc, 0, sc + 1920, 374);
     m_Yama.Draw();
-    m_Yama.SetSize(720 * 3, 203 * 3);
-    m_Yama.SetPos(0, 450);
 }
