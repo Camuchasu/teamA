@@ -60,7 +60,7 @@ Player::~Player()
 
 void Player::Update()
 {
-	ObjectBase::m_scroll.x = m_pos.x - 1280/4;
+	ObjectBase::m_scroll.x = m_pos.x - 1920/4;
 	switch (m_state)
 	{
 	case EState::Idle:		StateIdle();	break;

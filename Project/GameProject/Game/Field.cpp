@@ -8,7 +8,7 @@ Field::Field(const CVector3D& pos)
 }
 void Field::Update()
 {
-    ObjectBase::m_scroll.x += 2;
+
 }
 
 void Field::Render()

@@ -16,7 +16,7 @@ Bullet::~Bullet()
 void Bullet::Update()
 {
 	m_img.UpdateAnimation();
-	const int move_speed = 4;
+	const int move_speed = 20;
 	m_pos.x += move_speed;
 }
 
