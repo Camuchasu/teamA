@@ -37,8 +37,8 @@ Enemy::Enemy(int type, const CVector3D& pos)
 	if (m_type == 0) imagePath = "Image/Enemy.png";
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.ChangeAnimation(0);
-	m_img.SetSize(160, 160);
-	m_img.SetCenter(80,160);
+	m_img.SetSize(120, 120);
+	m_img.SetCenter(60,120);
 }
 
 Enemy::~Enemy()

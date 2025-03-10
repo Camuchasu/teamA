@@ -62,7 +62,7 @@ CVector2D ObjectBase::CalcScreenPos(bool grounded) const
 		ret.y = FIELD_CENTER_Z + m_pos.z;
 	}
 
-	return ret;
+	return ret - m_scroll;
 }
 
 // XV
