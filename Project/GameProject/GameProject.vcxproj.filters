@@ -8,9 +8,6 @@
     <ClInclude Include="Game\Enemy.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\UI.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Field.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -35,6 +32,9 @@
     <ClInclude Include="Game\Flower.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="UI\score.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -42,9 +42,6 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Enemy.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\UI.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Field.cpp">
@@ -71,6 +68,9 @@
     <ClCompile Include="Game\Flower.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="UI\score.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -78,6 +78,9 @@
     </Filter>
     <Filter Include="Task">
       <UniqueIdentifier>{c9fda646-c60e-4ea0-85fa-3d72d1cff64f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{e1b05456-269c-436d-a19c-94c88bece1ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
