@@ -68,6 +68,7 @@ CVector2D ObjectBase::CalcScreenPos(bool grounded) const
 // XV
 void ObjectBase::Update()
 {
+
 }
 
 // •`‰æ
