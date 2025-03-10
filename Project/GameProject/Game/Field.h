@@ -1,12 +1,12 @@
 #pragma once
 
 
-/*class Field {
+class Field {
 private:
 	//画像オブジェクト（前景）
 	CImage m_foreground;
 	//画像オブジェクト（遠景）
-	CImage m_town;
+	CImage m_yama;
 	//画像オブジェクト（最遠景）
 	CImage m_Sky;
 	//地面の高さ
@@ -15,7 +15,7 @@ public:
 	//コンストラクタ
 	Field();
 	//スクロール値
-	static CVector2D m_scroll;
+	//static CVector2D m_scroll;
 	//描画
 	void Draw();
 
@@ -23,4 +23,4 @@ public:
 	float GetGroundY() {
 		return m_ground_y;
 	}
-};*/
+};
