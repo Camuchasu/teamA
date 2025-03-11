@@ -9,7 +9,7 @@
 #include "Game/FlowerManager.h"
 #include "Game/Field.h"
 #include "UI/Score.h"
-
+#include "UI/Hp.h"
 
 
 
@@ -125,7 +125,7 @@ void Init(void)
 	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka.png"));
 	ADD_RESOURCE("kumo", CImage::CreateImage("Image/kumo.png"));
 	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
-	
+	ADD_RESOURCE("Hp", CImage::CreateImage("Image/Hp.png"));
 
 
 
@@ -140,7 +140,7 @@ void Init(void)
 	//フィールドの生成
 	new Field(CVector3D(1280,720,136));
 	new Score();
-	
+	new Hp();
 	new EnemyManager();
 	
 }

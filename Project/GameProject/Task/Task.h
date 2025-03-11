@@ -12,6 +12,7 @@ enum {
 	eType_EnemyManager,
 	eType_FlowerManager,
 	eType_StarManager,
+	eType_Hp,
 };
 enum class ETaskPrio
 {
