@@ -140,8 +140,9 @@ void Init(void)
 	//フィールドの生成
 	new Field(CVector3D(1280,720,136));
 	new Score();
-	
+	new StarManager();
 	new EnemyManager();
+	new FlowerManager();
 	
 }
 
