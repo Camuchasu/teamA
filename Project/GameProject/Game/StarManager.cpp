@@ -20,7 +20,8 @@ void StarManager::Update()
 			int Line = rand() % 4;
 
 
-			new Star(FlowerType,
+			//new Star
+			(FlowerType,
 				CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + Line * 174.0f - 348), CVector3D(20, 20, 20));
 
 			StarTimer = 60 * 0.75;

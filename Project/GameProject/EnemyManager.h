@@ -10,5 +10,10 @@ public:
 	int enemyTimer;
 	int FlowerTimer;
 	int StarTimer;
+
+	int EnemyLine;
+	int FlowerLine;
+	int StarLine;
+
 	void Update();
 };
