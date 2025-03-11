@@ -35,6 +35,9 @@
     <ClInclude Include="UI\score.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="UI\score.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

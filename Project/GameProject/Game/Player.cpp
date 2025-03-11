@@ -69,7 +69,7 @@ void Player::Update()
 	case EState::Attack:	StateAttack();	break;
 	case EState::Jump:	    StateJump();	break;
 	}
-	m_pos.x += 5;
+	m_pos.x += 14;
 	mp_image.UpdateAnimation();
 
 	// Y²i‚‚³j‚ÌˆÚ“®‚ğÀ•W‚É”½‰f

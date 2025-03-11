@@ -49,6 +49,6 @@ private:
 
 		Num,
 	};
-	int m_type;			// スライムの種類
+	int m_Enemytype;			// スライムの種類
 };
 extern TexAnimData enemy_anim_data[];

@@ -9,10 +9,12 @@ enum {
 	eType_Bullet,
 	eType_Field,
 	eType_Score,
+	eType_EnemyManager,
 };
 enum class ETaskPrio
 {
 	Field,//フィールド
+	Other,
 	Shadow,//影
 	Object,//オブジェクト（プレイヤーとか敵とか）
 };

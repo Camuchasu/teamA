@@ -26,15 +26,14 @@ TexAnimData enemy_anim_data[] =
 };
 
 // コンストラクタ
-Enemy::Enemy(int type, const CVector3D& pos, CVector3D& Cube)
+Enemy::Enemy(int Enemytype, const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos,eType_Enemy)
-	, m_type(type)
+	, m_Enemytype(Enemytype)
+	
 {
 	//メンバ変数を使う
 	 m_Cube = Cube;
 	// カラスの画像を読み込み
-	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/Enemy.png";
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(120, 120);
@@ -64,7 +63,7 @@ void Enemy::ChangeState(EState state)
 void Enemy::StateIdle()
 {
 	//移動量
-	const float move_speed = 6;
+	const float move_speed = 0;
 	//移動フラグ
 	bool move_flag = false;
 	//移動量を設定
@@ -109,8 +108,8 @@ void Enemy::Update()
 	case EState::Death:	StateDeath();	break;
 	}
 
-	// イメージに座標を設定して、アニメーションを更新
 	m_img.UpdateAnimation();
+	
 }
 
 // 描画処理
@@ -129,10 +128,8 @@ void Enemy::Collision(Task* b)
 	case eType_Player: {
 		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 		{
-			printf("あった");
+			ChangeState(EState::Death);
 		}
 	}
-
-		
 	}
 }
