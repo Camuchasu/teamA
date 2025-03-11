@@ -8,6 +8,7 @@ enum {
 	eType_Flower,
 	eType_Bullet,
 	eType_Field,
+	eType_Score,
 };
 enum class ETaskPrio
 {

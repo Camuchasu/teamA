@@ -5,7 +5,7 @@
 #include "Game/Star.h"
 #include "Game/Flower.h"
 #include "Game/Field.h"
-
+#include "UI/Score.h"
 
 
 
@@ -134,7 +134,7 @@ void Init(void)
 	//new Flower(0, CVector3D(700, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//フィールドの生成
 	new Field(CVector3D(1280,720,136));
-
+	new Score();
 
 }
 
