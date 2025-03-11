@@ -8,5 +8,7 @@ public:
 	~EnemyManager();
 
 	int enemyTimer;
+	int FlowerTimer;
+	int StarTimer;
 	void Update();
 };

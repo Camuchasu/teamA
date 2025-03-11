@@ -110,17 +110,17 @@ void Star::Render()
 
 void Star::Collision(Task* b)
 {
-	switch (b->m_type) {
+	switch (b->m_type)
+	{
 	case eType_Player: {
-		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 		{
-			printf("‚ ‚½‚Á‚½");
-			Score::AddScore(100);//(100)‚Íˆø”‚É’l‚ğ“n‚·
-
+			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+			{
+				Kill();
+				Score::AddScore(100);
+			}
 		}
 	}
-
-
 	}
 }
 

@@ -28,6 +28,7 @@
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\Result.h" />
     <ClInclude Include="Game\Star.h" />
+    <ClInclude Include="Game\StarManager.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Task\ObjectBase.h" />
     <ClInclude Include="Task\Task.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\Result.cpp" />
     <ClCompile Include="Game\Star.cpp" />
+    <ClCompile Include="Game\StarManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Task\ObjectBase.cpp" />
     <ClCompile Include="Task\Task.cpp" />

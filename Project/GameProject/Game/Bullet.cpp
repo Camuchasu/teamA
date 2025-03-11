@@ -3,6 +3,7 @@
 Bullet::Bullet(const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos,eType_Bullet)
 {
+	m_Cube = Cube;
 	m_img = COPY_RESOURCE("Bullet", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(64, 64);

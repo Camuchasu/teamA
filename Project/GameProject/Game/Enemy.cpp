@@ -133,6 +133,16 @@ void Enemy::Collision(Task* b)
 				Score::AddScore(100);
 			}
 		}
-	}
+	}break;
+		//‹Ê‚É“–‚½‚ê‚Î
+	case eType_Bullet: {
+		if (m_state != EState::Death) {
+			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+			{
+				Kill();
+				ChangeState(EState::Death);
+			}
+		}
+	}break;
 	}
 }

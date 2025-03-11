@@ -54,7 +54,6 @@ Player::Player(const CVector3D& pos, CVector3D& Cube)
 	);
 	mp_image->ChangeAnimation((int)EAnimType::Idle);
 	mp_image->SetCenter(16,16);*/
-	CVector3D cube = Cube;
 }
 Player::~Player()
 {
@@ -155,7 +154,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z),CVector3D(20,20,20));
+		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z),CVector3D(100,100,100));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		m_stateStep++;
 		break;

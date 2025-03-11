@@ -4,6 +4,7 @@
 #include "EnemyManager.h"
 #include "Task/ObjectBase.h"
 #include "Game/Star.h"
+#include "Game/StarManager.h"
 #include "Game/Flower.h"
 #include "Game/FlowerManager.h"
 #include "Game/Field.h"
@@ -139,8 +140,9 @@ void Init(void)
 	//フィールドの生成
 	new Field(CVector3D(1280,720,136));
 	new Score();
+	
 	new EnemyManager();
-	new FlowerManager();
+	
 }
 
 

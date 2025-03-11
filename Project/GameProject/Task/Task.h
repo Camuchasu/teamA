@@ -11,12 +11,13 @@ enum {
 	eType_Score,
 	eType_EnemyManager,
 	eType_FlowerManager,
+	eType_StarManager,
 };
 enum class ETaskPrio
 {
 	Field,//フィールド
-	Other,
 	Shadow,//影
+	Other,
 	Object,//オブジェクト（プレイヤーとか敵とか）
 	UI,
 };
