@@ -158,3 +158,19 @@ void TaskManager::DeletekilledTasks()
 		}
 	}
 }
+
+void TaskManager::Collision()
+{
+	auto it1 = m_objectList.begin();
+	auto last = m_objectList.end();
+	while (it1 != last) {
+		auto it2 = it1;
+		it2++;
+		while (it2 != last) {
+			(*it1)->Collision(*it2);
+			(*it2)->Collision(*it1);
+			it2++;
+		}
+		it1++;
+	}
+}

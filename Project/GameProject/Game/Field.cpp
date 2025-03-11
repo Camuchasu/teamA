@@ -1,7 +1,7 @@
 #include "Field.h"
 #include "../Task/ObjectBase.h"
 Field::Field(const CVector3D& pos)
-    :Task((int)ETaskPrio::Field, 0)
+    :Task((int)ETaskPrio::Field, 0,eType_Field)
 {
     m_Sky = COPY_RESOURCE("Sky", CImage);
     m_Yama = COPY_RESOURCE("yama", CImage);

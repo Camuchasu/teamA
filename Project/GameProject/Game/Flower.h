@@ -10,7 +10,7 @@ public:
 	/// </summary>
 	/// <param name="type">スライムの種類</param>
 	/// <param name="pos">初期位置</param>
-	Flower(int type, const CVector3D& pos);
+	Flower(int type, const CVector3D& pos, CVector3D& Cube);
 	// デストラクタ
 	~Flower();
 

@@ -2,13 +2,13 @@
 #define FIELD_CENTER_Z (SCREEN_HEIGHT * 0.75f)
 CVector2D ObjectBase::m_scroll(0, 0);
 // コンストラクタ
-ObjectBase::ObjectBase()
-	: ObjectBase(CVector3D::zero)
+ObjectBase::ObjectBase(int Type)
+	: ObjectBase(CVector3D::zero, Type)
 {
 }
 
-ObjectBase::ObjectBase(const CVector3D& pos)
-    : Task((int)ETaskPrio::Object,0)
+ObjectBase::ObjectBase(const CVector3D& pos,int Type)
+    : Task((int)ETaskPrio::Object,0,Type)
 	, m_pos(pos)
 	, m_isGrounded(true)
 	, mp_shadowImg(nullptr)
@@ -83,4 +83,19 @@ void ObjectBase::RenderShadow()
 	// 影を地面の位置で描画
 	mp_shadowImg->SetPos(CalcScreenPos(true));
 	mp_shadowImg->Draw();
+}
+
+bool ObjectBase::CollisionCube(ObjectBase* b1, ObjectBase* b2)
+{
+	b1->m_Max = b1->m_pos + b1->m_Cube;//最大値の設定
+	b1->m_Min = b1->m_pos - b1->m_Cube;//最低値の設定
+	b2->m_Max = b2->m_pos + b2->m_Cube;//最大値の設定
+	b2->m_Min = b2->m_pos - b2->m_Cube;//最低値の設定
+	if (b1->m_Min.x > b2->m_Max.x || b1->m_Max.x < b2->m_Min.x ||
+		b1->m_Min.y > b2->m_Max.y || b1->m_Max.y < b2->m_Min.y ||
+		b1->m_Min.z > b2->m_Max.z || b1->m_Max.z < b2->m_Min.z)
+	{
+		return false;
+	}
+	return true;
 }

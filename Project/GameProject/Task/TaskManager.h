@@ -28,6 +28,7 @@ public:
 		void DeleteAll();
 	//削除フラグが立っているタスクを削除
 		void DeletekilledTasks();
+		void Collision();
 private:
 	//TaskManagerのインスタンス
 	static TaskManager* ms_instance;

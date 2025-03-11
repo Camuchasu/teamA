@@ -5,8 +5,8 @@ class ObjectBase:public Task
 {
 public:
 	// コンストラクタ
-	ObjectBase();
-	ObjectBase(const CVector3D& pos);
+	ObjectBase(int Type);
+	ObjectBase(const CVector3D& pos,int Type);
 
 	// デストラクタ
 	virtual ~ObjectBase();
@@ -31,9 +31,12 @@ public:
 
 	// 影描画
 	virtual void RenderShadow();
-
-protected:
+	static bool CollisionCube(ObjectBase*b1,ObjectBase*b2);
+protected://継承しているとこだけ限定で使っていいよね
 	CVector3D m_pos;		// オブジェクトの座標
+	CVector3D m_Max;
+	CVector3D m_Min;
+	CVector3D m_Cube;
 	bool m_isGrounded;		// 地面に接地してあるかどうか
 	CImage* mp_shadowImg;	// 影の画像
 };

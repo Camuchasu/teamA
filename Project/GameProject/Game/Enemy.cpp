@@ -26,12 +26,12 @@ TexAnimData enemy_anim_data[] =
 };
 
 // コンストラクタ
-Enemy::Enemy(int type, const CVector3D& pos)
-	: ObjectBase(pos)
+Enemy::Enemy(int type, const CVector3D& pos, CVector3D& Cube)
+	: ObjectBase(pos,eType_Enemy)
 	, m_type(type)
 {
-	//m_hp = 200;
-
+	//メンバ変数を使う
+	 m_Cube = Cube;
 	// カラスの画像を読み込み
 	std::string imagePath;
 	if (m_type == 0) imagePath = "Image/Enemy.png";
@@ -121,4 +121,18 @@ void Enemy::Render()
 	//位置設定
 	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
+}
+void Enemy::Collision(Task* b)
+{
+	switch (b->m_type)
+	{
+	case eType_Player: {
+		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+		{
+			printf("あった");
+		}
+	}
+
+		
+	}
 }

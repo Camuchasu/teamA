@@ -26,8 +26,8 @@ TexAnimData Flower_anim_data[] =
 };
 
 // コンストラクタ
-Flower::Flower(int type, const CVector3D& pos)
-	: ObjectBase(pos)
+Flower::Flower(int type, const CVector3D& pos, CVector3D& Cube)
+	: ObjectBase(pos, eType_Flower)
 	, m_type(type)
 {
 
@@ -38,6 +38,7 @@ Flower::Flower(int type, const CVector3D& pos)
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(80, 80);
 	m_img.SetCenter(40, 80);
+	CVector3D cube = Cube;
 }
 
 Flower::~Flower()

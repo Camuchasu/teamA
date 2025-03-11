@@ -10,7 +10,7 @@ public:
 	/// </summary>
 	/// <param name="type">スライムの種類</param>
 	/// <param name="pos">初期位置</param>
-	 Enemy(int type, const CVector3D& pos);
+	 Enemy(int type, const CVector3D& pos,CVector3D & Cube);
 	// デストラクタ
 	~Enemy();
 
@@ -23,6 +23,7 @@ public:
 	// 描画処理
 	void Render() override;
 
+	void Collision(Task* b);
 private:
 	// 状態
 	enum class EState

@@ -36,10 +36,11 @@ TexAnimData Player::ANIM_DATA[] = {
 
 
 
-Player::Player(const CVector3D& pos)
-	: ObjectBase(pos)
+Player::Player(const CVector3D& pos, CVector3D& Cube)
+	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
 {
+	m_Cube = Cube;
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
@@ -53,6 +54,7 @@ Player::Player(const CVector3D& pos)
 	);
 	mp_image->ChangeAnimation((int)EAnimType::Idle);
 	mp_image->SetCenter(16,16);*/
+	CVector3D cube = Cube;
 }
 Player::~Player()
 {
@@ -153,7 +155,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z));
+		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z),CVector3D(20,20,20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		m_stateStep++;
 		break;

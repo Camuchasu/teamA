@@ -18,7 +18,7 @@ public:
 
 	CImage mp_image;
 	// コンストラクタ
-	Player(const CVector3D& pos);
+	Player(const CVector3D& pos,CVector3D& Cube);
 	// デストラクタ
 	~Player();
 
@@ -45,4 +45,5 @@ private:
 	
 	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像
+
 };

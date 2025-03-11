@@ -2,12 +2,13 @@
 #include "TaskManager.h"
 //コンストラクタ
 
-Task::Task(int prio, int sortOrder)
+Task::Task(int prio, int sortOrder,int type)
 	:m_isEnable(true)
 	,m_isShow(true)
 	,m_isKill(false)
 	,m_prio(prio)
 	,m_sortOrder(sortOrder)
+	,m_type(type)
 {
 	//TaskManagerのリストに自信を追加
 	TaskManager::Instance()->Add(this);
@@ -83,4 +84,9 @@ void Task::Update()
 //描画
 void Task::Render()
 {
+}
+
+void Task::Collision(Task* b)
+{
+
 }

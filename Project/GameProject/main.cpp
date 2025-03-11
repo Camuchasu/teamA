@@ -24,7 +24,7 @@ void MainLoop(void) {
 	//すべてのタスクを描画
 	TaskManager::Instance()->Render();
 
-
+	TaskManager::Instance()->Collision();
 
 
 }
@@ -102,7 +102,7 @@ void Init(void)
 	//-----------------------------------------------------
 	// 平山
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png", Player::ANIM_DATA,32,32));
-	new Player(CVector3D(0.0f, 0.0f, 35.0f));
+	new Player(CVector3D(0.0f, 0.0f, 35.0f), CVector3D(20, 20, 20));
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet3.png", Player::ANIM_DATA, 32, 32));
 
 
@@ -127,11 +127,11 @@ void Init(void)
 
 	// カラスを生成
 	new Enemy(0,
-		CVector3D(1800, 0.0f, 0.0f));
+		CVector3D(0.0f, 0.0f, 35.0f),CVector3D(30,30,30));
 	//星を生成
-	new Star(0,CVector3D(500, 0.0f, 0.0f));
+	//new Star(0,CVector3D(500, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//花を生成
-	new Flower(0, CVector3D(700, 0.0f, 0.0f));
+	//new Flower(0, CVector3D(700, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//フィールドの生成
 	new Field(CVector3D(1280,720,136));
 

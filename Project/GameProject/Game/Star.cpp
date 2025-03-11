@@ -26,12 +26,10 @@ TexAnimData Star_anim_data[] =
 };
 
 // コンストラクタ
-Star::Star(int type, const CVector3D& pos)
-	: ObjectBase(pos)
+Star::Star(int type, const CVector3D& pos, CVector3D& Cube)
+	: ObjectBase(pos, eType_Star)
 	, m_type(type)
 {
-	//m_hp = 200;
-
 	// 星の画像を読み込み
 	std::string imagePath;
 	if (m_type == 0) imagePath = "Image/Star.png";
@@ -39,6 +37,7 @@ Star::Star(int type, const CVector3D& pos)
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(100, 100);
 	m_img.SetCenter(50, 100);
+	CVector3D cube = Cube;
 }
 
 Star::~Star()

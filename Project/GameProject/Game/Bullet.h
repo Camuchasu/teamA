@@ -7,7 +7,7 @@ class Bullet : public ObjectBase {
 public:
 	CImage m_img;
 
-	Bullet(const CVector3D& pos); 
+	Bullet(const CVector3D& pos, CVector3D& Cube);
 	~Bullet();
 
 	void Update();
