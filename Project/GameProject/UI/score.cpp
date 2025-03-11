@@ -1,9 +1,10 @@
 #include "Score.h"
-Score::Score() : Task(0,0,eType_Score) {
+Score::Score() : Task((int)ETaskPrio ::UI, 0, eType_Score) {/*(int)‚ÍETaskPrio‚ðint Œ^‚É•ÏŠ·‚µ‚Ä‚¢‚é*/
 	m_img.Load("Image/Score.png");
+	m_img = COPY_RESOURCE("Score", CImage);
 
 }
-void Score::Draw()
+void Score::Render()
 {
 	int score = 3000;
 	for (int i = 0; i < 8; i++, score /= 10) {

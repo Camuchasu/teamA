@@ -17,6 +17,7 @@ enum class ETaskPrio
 	Other,
 	Shadow,//影
 	Object,//オブジェクト（プレイヤーとか敵とか）
+	UI,
 };
 
 

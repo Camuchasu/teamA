@@ -20,7 +20,7 @@ public:
 	void Update() override;
 	// 描画処理
 	void Render() override;
-
+	void Collision(Task*b);
 private:
 	// 状態
 	enum class EState
@@ -44,6 +44,6 @@ private:
 
 		Num,
 	};
-	int m_type;			// スライムの種類
+	int m_Startype;			// スライムの種類
 };
 extern TexAnimData Star_anim_data[];

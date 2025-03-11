@@ -122,7 +122,8 @@ void Init(void)
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama1.png"));
 	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka.png"));
 	ADD_RESOURCE("kumo", CImage::CreateImage("Image/kumo.png"));
-
+	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
+	
 
 
 
@@ -131,7 +132,7 @@ void Init(void)
 	new Enemy(0,
 		CVector3D(0.0f, 0.0f, 35.0f),CVector3D(30,30,30));
 	//星を生成
-	//new Star(0,CVector3D(500, 0.0f, 0.0f), CVector3D(20, 20, 20));
+	new Star(0,CVector3D(500, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//花を生成
 	//new Flower(0, CVector3D(700, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//フィールドの生成
