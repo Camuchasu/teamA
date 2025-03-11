@@ -1,39 +1,30 @@
 #include "Flower.h"
 
 
+
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(65.0f, 96.0f)	// 中心座標
 //char Flower
 // 花のアニメーションデータ
-TexAnimData Flower_anim_data[] =
-{
-	{
-		new TexAnim[2]
-		{
-			{ 0, 6}, { 1, 6},
-
-		},
-		2
-	},
-	{
-		new TexAnim[5]
-		{
-			{5, 6}, {6, 6}, {7, 6},
-			{8, 6}, {9, 6},
-		},
-		5
-	},
+    static TexAnim _Idle[] = {
+	{0,8},
+	{1,8},
 };
 
+static TexAnim _Death[] = {
+	{2,8},
+	{3,8},
+};
+TexAnimData Flower::ANIM_DATA[] = {
+	ANIMDATA(_Idle),
+	ANIMDATA(_Death),
+};
 // コンストラクタ
 Flower::Flower(int type, const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos, eType_Flower)
-	, m_type(type)
 {
 
 	// 花の画像を読み込み
-	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/Flower.png";
 	m_img = COPY_RESOURCE("Flower", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(80, 80);
@@ -113,4 +104,17 @@ void Flower::Render()
 	//位置設定
 	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
+}
+
+void Flower::Collision(Task* b)
+{
+	switch (b->m_type)
+	{
+	case eType_Player: {
+		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+		{
+			ChangeState(EState::Death);
+		}
+	}
+	}
 }

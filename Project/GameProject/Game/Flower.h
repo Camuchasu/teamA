@@ -23,6 +23,9 @@ public:
 	// 描画処理
 	void Render() override;
 
+	void Collision(Task* b);
+
+	static TexAnimData ANIM_DATA[];
 private:
 	// 状態
 	enum class EState
@@ -39,6 +42,7 @@ private:
 
 	EState m_state;
 	int m_stateStep;
+	
 
 	// アニメーションの種類
 	enum class EAnimType
@@ -50,4 +54,4 @@ private:
 	};
 	int m_type;			// スライムの種類
 };
-extern TexAnimData Flower_anim_data[];
+//extern TexAnimData Flower_anim_data[];

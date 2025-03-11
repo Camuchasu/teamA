@@ -5,6 +5,7 @@
 #include "Task/ObjectBase.h"
 #include "Game/Star.h"
 #include "Game/Flower.h"
+#include "Game/FlowerManager.h"
 #include "Game/Field.h"
 #include "UI/Score.h"
 
@@ -117,7 +118,7 @@ void Init(void)
 	//èºë∫
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
 	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
-	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower_anim_data, 32, 32));
+	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama1.png"));
 	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka.png"));
@@ -139,6 +140,7 @@ void Init(void)
 	new Field(CVector3D(1280,720,136));
 	new Score();
 	new EnemyManager();
+	new FlowerManager();
 }
 
 
