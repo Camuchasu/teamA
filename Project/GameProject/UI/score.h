@@ -7,6 +7,7 @@ public:
 	CImage m_img;
 public:
 	Score();
-	void Draw();
-
+	void Render();
+	void AddScore(int ad);
+	static int s_score;
 };

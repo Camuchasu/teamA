@@ -1,5 +1,5 @@
 #include "Star.h"
-
+#include "../UI/Score.h"
 
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
@@ -28,11 +28,10 @@ TexAnimData Star_anim_data[] =
 // コンストラクタ
 Star::Star(int type, const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos, eType_Star)
-	, m_type(type)
+	, m_Startype(type)
 {
 	// 星の画像を読み込み
-	std::string imagePath;
-	if (m_type == 0) imagePath = "Image/Star.png";
+	
 	m_img = COPY_RESOURCE("Star", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(100, 100);
@@ -108,3 +107,21 @@ void Star::Render()
 	m_img.Draw();
 	
 }
+
+void Star::Collision(Task* b)
+{
+	switch (b->m_type) {
+	case eType_Player: {
+		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+		{
+			printf("あたった");
+			//Score::s_score += 100;
+
+		}
+	}
+
+
+	}
+}
+
+	
