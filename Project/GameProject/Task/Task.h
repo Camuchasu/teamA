@@ -10,6 +10,7 @@ enum {
 	eType_Field,
 	eType_Score,
 	eType_EnemyManager,
+	eType_FlowerManager,
 };
 enum class ETaskPrio
 {

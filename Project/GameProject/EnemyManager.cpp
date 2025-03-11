@@ -23,7 +23,7 @@ void EnemyManager::Update()
 			new Enemy(EnemyType,
 				CVector3D(1920.0f + ObjectBase::m_scroll.x, EnemyType*200.0f, 34+Line*174.0f-348), CVector3D(20, 20, 20));
 
-			enemyTimer = 60 * 0.5;
+			enemyTimer = 60 * 1.5;
 		}
 	}
 }

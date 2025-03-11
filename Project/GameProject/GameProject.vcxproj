@@ -24,6 +24,7 @@
     <ClInclude Include="Game\Enemy.h" />
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\Flower.h" />
+    <ClInclude Include="Game\FlowerManager.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\Result.h" />
     <ClInclude Include="Game\Star.h" />
@@ -39,6 +40,7 @@
     <ClCompile Include="Game\Enemy.cpp" />
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Flower.cpp" />
+    <ClCompile Include="Game\FlowerManager.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\Result.cpp" />
     <ClCompile Include="Game\Star.cpp" />
