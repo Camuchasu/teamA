@@ -31,6 +31,7 @@
     <ClInclude Include="Task\ObjectBase.h" />
     <ClInclude Include="Task\Task.h" />
     <ClInclude Include="Task\TaskManager.h" />
+    <ClInclude Include="UI\Hp.h" />
     <ClInclude Include="UI\score.h" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +47,7 @@
     <ClCompile Include="Task\ObjectBase.cpp" />
     <ClCompile Include="Task\Task.cpp" />
     <ClCompile Include="Task\TaskManager.cpp" />
+    <ClCompile Include="UI\Hp.cpp" />
     <ClCompile Include="UI\score.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

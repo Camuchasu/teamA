@@ -1,5 +1,5 @@
 #include "Enemy.h"
-
+#include "../UI/score.h"
 
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
@@ -126,9 +126,12 @@ void Enemy::Collision(Task* b)
 	switch (b->m_type)
 	{
 	case eType_Player: {
-		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
-		{
-			ChangeState(EState::Death);
+		if (m_state != EState::Death) {
+			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+			{
+				ChangeState(EState::Death);
+				Score::AddScore(100);
+			}
 		}
 	}
 	}

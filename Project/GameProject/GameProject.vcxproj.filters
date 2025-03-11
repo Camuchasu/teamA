@@ -38,6 +38,9 @@
     <ClInclude Include="EnemyManager.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="UI\Hp.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="EnemyManager.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Hp.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

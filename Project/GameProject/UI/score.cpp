@@ -1,4 +1,5 @@
 #include "Score.h"
+int Score::s_score(0);
 Score::Score() : Task((int)ETaskPrio ::UI, 0, eType_Score) {/*(int)‚ÍETaskPrio‚ðint Œ^‚É•ÏŠ·‚µ‚Ä‚¢‚é*/
 	m_img.Load("Image/Score.png");
 	m_img = COPY_RESOURCE("Score", CImage);
@@ -6,7 +7,7 @@ Score::Score() : Task((int)ETaskPrio ::UI, 0, eType_Score) {/*(int)‚ÍETaskPrio‚ð
 }
 void Score::Render()
 {
-	int score = 3000;
+	int score = s_score;
 	for (int i = 0; i < 8; i++, score /= 10) {
 		int s = score % 10;
 		m_img.SetRect(16 * s, 16, 16 * s + 16, 32);
@@ -14,4 +15,9 @@ void Score::Render()
 		m_img.SetPos(200 - 16 * i, 32);
 		m_img.Draw();
 	}
+}
+
+void Score::AddScore(int ad)
+{
+	s_score += 100;
 }

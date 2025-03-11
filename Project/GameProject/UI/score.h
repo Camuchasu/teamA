@@ -8,6 +8,6 @@ public:
 public:
 	Score();
 	void Render();
-	void AddScore(int ad);
+	static void AddScore(int ad);
 	static int s_score;
 };

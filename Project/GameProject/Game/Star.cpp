@@ -115,7 +115,7 @@ void Star::Collision(Task* b)
 		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 		{
 			printf("‚ ‚½‚Á‚½");
-			//Score::s_score += 100;
+			Score::AddScore(100);//(100)‚Íˆø”‚É’l‚ğ“n‚·
 
 		}
 	}
