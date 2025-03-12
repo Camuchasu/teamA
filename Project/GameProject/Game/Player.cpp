@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <Task/ObjectBase.h>
 #include "Game/Bullet.h"
+#include "UI/Hp.h"
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
@@ -35,16 +36,17 @@ TexAnimData Player::ANIM_DATA[] = {
 };
 
 
-
 Player::Player(const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
+
 {
 	m_Cube = Cube;
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
 	mp_image.SetCenter(90,180);
+	
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
 	(
@@ -67,6 +69,7 @@ void Player::Update()
 	case EState::Idle:		StateIdle();	break;
 	case EState::Attack:	StateAttack();	break;
 	case EState::Jump:	    StateJump();	break;
+	case EState::Damage:	StateDamage();	break;
 	}
 	m_pos.x += 10;
 	mp_image.UpdateAnimation();
@@ -216,4 +219,30 @@ void Player::StateJump()
 	mp_image.ChangeAnimation((int)EState::Idle);
 }
 
+void Player::StateDamage()
+{
+	mp_image.ChangeAnimation((int)EState::Damage,false);
+	if (mp_image.CheckAnimationEnd())
+	{
+		if (m_isGrounded == false) {
+			ChangeState(EState::Jump);
+		}
+		else {
+			ChangeState(EState::Idle);
+		}
+	}
+}
 
+void Player::Collision(Task* b)
+{
+	switch (b->m_type)
+	case eType_Enemy: {
+		if (m_state != EState::Damage) {
+			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+			{
+				Hp::DownHp();
+				ChangeState(EState::Damage);
+			}
+		}
+	}
+}

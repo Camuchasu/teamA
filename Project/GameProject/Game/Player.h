@@ -44,6 +44,9 @@ private:
 	void StateIdle();
 	void StateAttack();
 	void StateJump();
+	void StateDamage();
+
+	void Collision(Task* b);
 	
 	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像

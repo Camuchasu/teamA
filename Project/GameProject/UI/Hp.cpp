@@ -20,3 +20,8 @@ void Hp::Render()
 		m_img.Draw();
 	}
 }
+
+void Hp::DownHp()
+{
+	m_Hp -= 1;
+}

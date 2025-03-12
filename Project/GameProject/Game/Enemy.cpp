@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "../UI/score.h"
-
+#include "Game/Player.h"
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
 
