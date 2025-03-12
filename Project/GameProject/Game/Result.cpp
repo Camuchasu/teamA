@@ -1,5 +1,6 @@
 #include "Result.h"
 #include "../task/TaskManager.h"
+#include "Game.h"
 Result::Result() : Task((int)ETaskPrio::Result, 0, eType_Result)
 {
 	//‰æ‘œ•¡»
@@ -12,7 +13,7 @@ void Result::Update()
 	if (PUSH(CInput::eButton1)) {
 		
 		TaskManager::Instance()->DeleteAll();
-
+		new Game();
 		
 	}
 }

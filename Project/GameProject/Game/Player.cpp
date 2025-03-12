@@ -2,6 +2,7 @@
 #include <Task/ObjectBase.h>
 #include "Game/Bullet.h"
 #include "UI/Hp.h"
+#include "Result.h"
 
 #define MOVE_SPEED_X 5.0f	// ‰¡•ûŒü‚ÌˆÚ“®‘¬“x
 #define MOVE_SPEED_Z 3.0f	// ‰œ•ûŒü‚ÌˆÚ“®‘¬“x
@@ -247,7 +248,7 @@ void Player::StateDeath()
 	mp_image.ChangeAnimation((int)EState::Death, false);
 	if (mp_image.CheckAnimationEnd());
 	{
-		Kill();
+		new Result();
 	}
 }
 
