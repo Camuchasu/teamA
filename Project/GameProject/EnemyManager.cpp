@@ -45,7 +45,7 @@ void EnemyManager::Update()
 				     }
 
 				new Flower(FlowerType,
-					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + FlowerLine * 174.0f - 348), CVector3D(20, 20, 20));
+					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + FlowerLine * 174.0f - 348), CVector3D(100, 100, 100));
 
 				FlowerTimer = 60 * 3;
 			}

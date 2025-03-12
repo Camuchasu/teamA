@@ -28,17 +28,23 @@ static TexAnim _Damage[] = {
 	{12,10},
 	{13,10},
 };
+static TexAnim _Death[] = {
+	{12,10},
+	{13,10},
+};
 TexAnimData Player::ANIM_DATA[] = {
 	ANIMDATA(_idle),
 	ANIMDATA(_Attack),
 	ANIMDATA(_Jump),
 	ANIMDATA(_Damage),
+	ANIMDATA(_Death),
 };
 
 
 Player::Player(const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
+	,AttackCount(180)
 
 {
 	m_Cube = Cube;
@@ -46,6 +52,7 @@ Player::Player(const CVector3D& pos, CVector3D& Cube)
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
 	mp_image.SetCenter(90,180);
+	
 	
 	// ÉvÉåÉCÉÑÅ[ÇÃâÊëúÇì«Ç›çûÇ›
 /*	mp_image = CImage::CreateImage
@@ -70,6 +77,7 @@ void Player::Update()
 	case EState::Attack:	StateAttack();	break;
 	case EState::Jump:	    StateJump();	break;
 	case EState::Damage:	StateDamage();	break;
+	case EState::Death:	    StateDeath();	break;
 	}
 	m_pos.x += 10;
 	mp_image.UpdateAnimation();
@@ -85,7 +93,7 @@ void Player::Update()
 		m_moveSpeedY = 0.0f;
 		m_isGrounded = true;
 	}
-
+	AttackCount--;
 }
 
 void Player::Render()
@@ -148,9 +156,10 @@ void Player::StateIdle()
 	{
 		ChangeState(EState::Jump);
 	}
-	if (PUSH(CInput::eMouseL))
+	if (PUSH(CInput::eMouseL) && AttackCount < 0)
 	{
 		ChangeState(EState::Attack);
+		AttackCount = 180;
 	}
 	
 }
@@ -233,6 +242,15 @@ void Player::StateDamage()
 	}
 }
 
+void Player::StateDeath()
+{
+	mp_image.ChangeAnimation((int)EState::Death, false);
+	if (mp_image.CheckAnimationEnd());
+	{
+		Kill();
+	}
+}
+
 void Player::Collision(Task* b)
 {
 	switch (b->m_type)
@@ -241,7 +259,12 @@ void Player::Collision(Task* b)
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
 				Hp::DownHp();
-				ChangeState(EState::Damage);
+				if (Hp::m_Hp > 0) {
+					ChangeState(EState::Damage);
+				}
+				if (Hp::m_Hp == 0) {
+					ChangeState(EState::Death);
+				}
 			}
 		}
 	}

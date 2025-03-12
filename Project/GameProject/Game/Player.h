@@ -12,6 +12,7 @@ public:
 		Attack,	// UŒ‚
 		Jump,
 		Damage,
+		Death,
 
 		Num,
 	}; 
@@ -33,6 +34,7 @@ public:
 
 	EState m_state;
 	int m_stateStep;
+	int AttackCount;
 
 
 private:
@@ -45,6 +47,7 @@ private:
 	void StateAttack();
 	void StateJump();
 	void StateDamage();
+	void StateDeath();
 
 	void Collision(Task* b);
 	

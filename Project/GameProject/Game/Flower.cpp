@@ -108,6 +108,7 @@ void Flower::Render()
 	//à íuê›íË
 	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
+	RenderCube();
 }
 
 void Flower::Collision(Task* b)

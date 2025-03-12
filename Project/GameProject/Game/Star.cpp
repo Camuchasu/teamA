@@ -105,7 +105,7 @@ void Star::Render()
 	//à íuê›íË
 	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
-	
+	RenderCube();
 }
 
 void Star::Collision(Task* b)
