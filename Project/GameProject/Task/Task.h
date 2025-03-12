@@ -13,6 +13,7 @@ enum {
 	eType_FlowerManager,
 	eType_StarManager,
 	eType_Hp,
+	eType_Title,
 };
 enum class ETaskPrio
 {

@@ -44,6 +44,10 @@
     <ClInclude Include="UI\Hp.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Game\StarManager.h" />
+    <ClInclude Include="Title\Title.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -89,6 +93,10 @@
     <ClCompile Include="UI\Hp.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="Game\StarManager.cpp" />
+    <ClCompile Include="Title\Title.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -99,6 +107,9 @@
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{e1b05456-269c-436d-a19c-94c88bece1ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{aa516032-e65b-4e9d-ac3f-e73a9a238ff4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
