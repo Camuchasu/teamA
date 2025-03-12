@@ -20,7 +20,7 @@ TexAnimData Flower::ANIM_DATA[] = {
 	ANIMDATA(_Death),
 };
 // コンストラクタ
-Flower::Flower(int type, const CVector3D& pos, CVector3D& Cube)
+Flower::Flower(int type, const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos, eType_Flower)
 {
 
@@ -29,7 +29,8 @@ Flower::Flower(int type, const CVector3D& pos, CVector3D& Cube)
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(80, 80);
 	m_img.SetCenter(40, 80);
-	CVector3D cube = Cube;
+	m_MaxCube = cubeMax;
+	m_MinCube = cubeMin;
 }
 
 Flower::~Flower()

@@ -19,7 +19,7 @@ public:
 
 	CImage mp_image;
 	// コンストラクタ
-	Player(const CVector3D& pos,CVector3D& Cube);
+	Player(const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin);
 	// デストラクタ
 	~Player();
 

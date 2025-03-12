@@ -42,18 +42,19 @@ TexAnimData Player::ANIM_DATA[] = {
 };
 
 
-Player::Player(const CVector3D& pos, CVector3D& Cube)
+Player::Player(const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
 	,AttackCount(180)
 
 {
-	m_Cube = Cube;
+
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
 	mp_image.SetCenter(90,180);
-	
+	m_MaxCube = cubeMax;
+	m_MinCube = cubeMin;
 	
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
@@ -172,7 +173,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z),CVector3D(100,100,100));
+		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		m_stateStep++;
 		break;

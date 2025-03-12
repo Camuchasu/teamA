@@ -30,7 +30,7 @@ void EnemyManager::Update()
 
 
 			new Enemy(EnemyType,
-				CVector3D(1920.0f + ObjectBase::m_scroll.x, EnemyType*200.0f, 34+EnemyLine*174.0f-348), CVector3D(20, 20, 20));
+				CVector3D(1920.0f + ObjectBase::m_scroll.x, EnemyType*200.0f, 34+EnemyLine*174.0f-348), CVector3D(64, 120, 20), CVector3D(64, 0, 20));
 
 			enemyTimer = 60 * 3;
 		}
@@ -45,7 +45,7 @@ void EnemyManager::Update()
 				     }
 
 				new Flower(FlowerType,
-					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + FlowerLine * 174.0f - 348), CVector3D(100, 100, 100));
+					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + FlowerLine * 174.0f - 348), CVector3D(40, 80, 20), CVector3D(40, 0, 20));
 
 				FlowerTimer = 60 * 3;
 			}
@@ -53,15 +53,15 @@ void EnemyManager::Update()
 		StarTimer--;
 		if (time >= 0) {
 			if (StarTimer < 0) {
-				int FlowerType = rand() % 2;
+				int StarType = rand() % 2;
 				    StarLine = rand() % 4;
 				while (StarLine == FlowerLine || StarLine == EnemyLine) {
 					   StarLine = rand() % 4;
 				}
 
 
-				new Star(FlowerType,
-					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + StarLine * 174.0f - 348), CVector3D(20, 20, 20));
+				new Star(StarType,
+					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + StarLine * 174.0f - 348), CVector3D(50, 100, 20), CVector3D(50, 0, 20));
 
 				StarTimer = 60 * 3;
 			}

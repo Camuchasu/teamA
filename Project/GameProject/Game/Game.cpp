@@ -14,12 +14,12 @@
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 {
-	new Player(CVector3D(0.0f, 0.0f, 35.0f), CVector3D(50, 50, 100));
+	new Player(CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
 	// カラスを生成
-	new Enemy(0,
-		CVector3D(0.0f, 0.0f, 0.0f), CVector3D(30, 30, 30));
+	/*new Enemy(0,
+		CVector3D(0.0f, 0.0f, 0.0f), CVector3D(30, 30, 30));*/
 	//星を生成
-	new Star(0, CVector3D(0.0, 0.0f, 0.0f), CVector3D(20, 20, 20));
+	new Star(0, CVector3D(0.0, 0.0f, 0.0f), CVector3D(64, 120, 20), CVector3D(64, 0, 20));
 	//花を生成
 	//new Flower(0, CVector3D(700, 0.0f, 0.0f), CVector3D(20, 20, 20));
 	//フィールドの生成

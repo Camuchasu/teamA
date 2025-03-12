@@ -1,14 +1,14 @@
 #include "Bullet.h"
 
-Bullet::Bullet(const CVector3D& pos, CVector3D& Cube)
+Bullet::Bullet(const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos,eType_Bullet)
 {
-	m_Cube = Cube;
 	m_img = COPY_RESOURCE("Bullet", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(64, 64);
 	m_img.SetCenter(32,32);
-	CVector3D cube = Cube;
+	m_MaxCube = cubeMax;
+	m_MinCube = cubeMin;
 }
 
 Bullet::~Bullet()

@@ -92,10 +92,10 @@ void ObjectBase::RenderShadow()
 
 bool ObjectBase::CollisionCube(ObjectBase* b1, ObjectBase* b2)
 {
-	b1->m_Max = b1->m_pos + b1->m_Cube;//最大値の設定
-	b1->m_Min = b1->m_pos - b1->m_Cube;//最低値の設定
-	b2->m_Max = b2->m_pos + b2->m_Cube;//最大値の設定
-	b2->m_Min = b2->m_pos - b2->m_Cube;//最低値の設定
+	b1->m_Max = b1->m_pos + b1->m_MaxCube;//最大値の設定
+	b1->m_Min = b1->m_pos - b1->m_MinCube;//最低値の設定
+	b2->m_Max = b2->m_pos + b2->m_MaxCube;//最大値の設定
+	b2->m_Min = b2->m_pos - b2->m_MinCube;//最低値の設定
 	if (b1->m_Min.x > b2->m_Max.x || b1->m_Max.x < b2->m_Min.x ||
 		b1->m_Min.y > b2->m_Max.y || b1->m_Max.y < b2->m_Min.y ||
 		b1->m_Min.z > b2->m_Max.z || b1->m_Max.z < b2->m_Min.z)
@@ -108,9 +108,9 @@ bool ObjectBase::CollisionCube(ObjectBase* b1, ObjectBase* b2)
 void ObjectBase::RenderCube()
 {
 #ifdef _DEBUG
-	m_Max = m_pos + m_Cube;
-	m_Min = m_pos - m_Cube;
+	m_Max = m_pos + m_MaxCube;
+	m_Min = m_pos - m_MinCube;
 	Utility::DrawQuad(CalcScreenPos(CVector3D(m_Min.x, m_Max.y, m_pos.z)),
-		CVector2D(m_Cube.x * 2, m_Cube.y * 2), CVector4D(1, 0, 0, 0.5f));
+		CVector2D(m_MaxCube.x + m_MinCube.x,m_MaxCube.y + m_MinCube.y), CVector4D(1, 0, 0, 0.5f));
 #endif 
 }

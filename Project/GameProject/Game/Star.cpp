@@ -26,7 +26,7 @@ TexAnimData Star_anim_data[] =
 };
 
 // コンストラクタ
-Star::Star(int type, const CVector3D& pos, CVector3D& Cube)
+Star::Star(int type, const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos, eType_Star)
 	, m_Startype(type)
 {
@@ -36,7 +36,8 @@ Star::Star(int type, const CVector3D& pos, CVector3D& Cube)
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(100, 100);
 	m_img.SetCenter(50, 100);
-	CVector3D cube = Cube;
+	m_MaxCube = cubeMax;
+	m_MinCube = cubeMin;
 }
 
 Star::~Star()

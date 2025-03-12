@@ -10,7 +10,7 @@ public:
 	/// </summary>
 	/// <param name="type">スライムの種類</param>
 	/// <param name="pos">初期位置</param>
-	 Enemy(int type, const CVector3D& pos,CVector3D & Cube);
+	 Enemy(int type, const CVector3D& pos, CVector3D& cubeMax,CVector3D & cubeMin);
 	// デストラクタ
 	~Enemy();
 

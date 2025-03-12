@@ -39,6 +39,8 @@ protected://Œp³‚µ‚Ä‚¢‚é‚Æ‚±‚¾‚¯ŒÀ’è‚Åg‚Á‚Ä‚¢‚¢‚æ‚Ë
 	CVector3D m_Max;
 	CVector3D m_Min;
 	CVector3D m_Cube;
+	CVector3D m_MaxCube;
+	CVector3D m_MinCube;
 	bool m_isGrounded;		// ’n–Ê‚ÉÚ’n‚µ‚Ä‚ ‚é‚©‚Ç‚¤‚©
 	CImage* mp_shadowImg;	// ‰e‚Ì‰æ‘œ
 };

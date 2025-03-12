@@ -10,7 +10,7 @@ public:
 	/// </summary>
 	/// <param name="type">スライムの種類</param>
 	/// <param name="pos">初期位置</param>
-	Star(int type, const CVector3D& pos, CVector3D& Cube);
+	Star(int type, const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin);
 	// デストラクタ
 	~Star();
 

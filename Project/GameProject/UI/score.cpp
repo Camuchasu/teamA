@@ -1,5 +1,5 @@
 #include "Score.h"
-int Score::s_score(0);//‰Šú’l
+int Score::s_score = 0;//‰Šú’l
 Score::Score() : Task((int)ETaskPrio ::UI, 0, eType_Score) {/*(int)‚ÍETaskPrio‚ğint Œ^‚É•ÏŠ·‚µ‚Ä‚¢‚é*/
 	
 	m_img = COPY_RESOURCE("Score", CImage);

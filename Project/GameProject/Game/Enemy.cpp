@@ -25,18 +25,18 @@ TexAnimData enemy_anim_data[] =
 };
 
 // コンストラクタ
-Enemy::Enemy(int Enemytype, const CVector3D& pos, CVector3D& Cube)
+Enemy::Enemy(int Enemytype, const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos,eType_Enemy)
 	, m_Enemytype(Enemytype)
 	
 {
-	//メンバ変数を使う
-	 m_Cube = Cube;
 	// カラスの画像を読み込み
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.ChangeAnimation(0);
 	m_img.SetSize(120, 120);
 	m_img.SetCenter(60,120);
+	m_MaxCube = cubeMax;
+	m_MinCube = cubeMin;
 }
 
 Enemy::~Enemy()
@@ -120,6 +120,7 @@ void Enemy::Render()
 	//位置設定
 	m_img.SetPos(CalcScreenPos());
 	m_img.Draw();
+	RenderCube();
 }
 void Enemy::Collision(Task* b)
 {
