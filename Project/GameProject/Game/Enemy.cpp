@@ -130,7 +130,12 @@ void Enemy::Collision(Task* b)
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
 				ChangeState(EState::Death);
-				Score::AddScore(100);
+				if (m_Enemytype == 0) {
+					Score::AddScore(100);
+				}
+				else {
+					Score::AddScore(200);
+				}
 			}
 		}
 	}break;
@@ -139,8 +144,14 @@ void Enemy::Collision(Task* b)
 		if (m_state != EState::Death) {
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
-				Kill();
+				b->Kill();
 				ChangeState(EState::Death);
+				if (m_Enemytype == 0) {
+					Score::AddScore(100);
+				}
+				else {
+					Score::AddScore(200);
+				}
 			}
 		}
 	}break;

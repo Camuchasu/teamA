@@ -1,5 +1,5 @@
 #include "Flower.h"
-
+#include "../UI/score.h"
 
 
 #define CHIP_SIZE 256		// 1コマのサイズ
@@ -76,6 +76,10 @@ void Flower::StateDeath()
 		{
 			//削除フラグを立てる
 			Kill();
+			
+				Score::DownScore(500);
+			
+			
 		}
 		break;
 	}
