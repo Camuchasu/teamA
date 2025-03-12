@@ -28,11 +28,16 @@ static TexAnim _Damage[] = {
 	{12,10},
 	{13,10},
 };
+static TexAnim _Death[] = {
+	{12,10},
+	{13,10},
+};
 TexAnimData Player::ANIM_DATA[] = {
 	ANIMDATA(_idle),
 	ANIMDATA(_Attack),
 	ANIMDATA(_Jump),
 	ANIMDATA(_Damage),
+	ANIMDATA(_Death),
 };
 
 
@@ -70,8 +75,9 @@ void Player::Update()
 	case EState::Attack:	StateAttack();	break;
 	case EState::Jump:	    StateJump();	break;
 	case EState::Damage:	StateDamage();	break;
+	case EState::Death:	    StateDeath();	break;
 	}
-	m_pos.x += 10;
+	m_pos.x += 30;
 	mp_image.UpdateAnimation();
 
 	// YŽ²i‚‚³j‚ÌˆÚ“®‚ðÀ•W‚É”½‰f
@@ -233,6 +239,15 @@ void Player::StateDamage()
 	}
 }
 
+void Player::StateDeath()
+{
+	mp_image.ChangeAnimation((int)EState::Death, false);
+	if (mp_image.CheckAnimationEnd());
+	{
+		Kill();
+	}
+}
+
 void Player::Collision(Task* b)
 {
 	switch (b->m_type)
@@ -241,7 +256,12 @@ void Player::Collision(Task* b)
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
 				Hp::DownHp();
-				ChangeState(EState::Damage);
+				if (Hp::m_Hp > 0) {
+					ChangeState(EState::Damage);
+				}
+				if (Hp::m_Hp == 0) {
+					ChangeState(EState::Death);
+				}
 			}
 		}
 	}

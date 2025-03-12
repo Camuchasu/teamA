@@ -12,6 +12,7 @@ public:
 		Attack,	// çUåÇ
 		Jump,
 		Damage,
+		Death,
 
 		Num,
 	}; 
@@ -45,6 +46,7 @@ private:
 	void StateAttack();
 	void StateJump();
 	void StateDamage();
+	void StateDeath();
 
 	void Collision(Task* b);
 	
