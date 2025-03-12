@@ -94,7 +94,7 @@ void Player::Render()
 	ObjectBase::RenderShadow();
 	mp_image.SetPos(CalcScreenPos());
 	mp_image.Draw();
-	
+	RenderCube();
 }
 
 void Player::Collison()

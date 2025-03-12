@@ -23,6 +23,7 @@ public:
 	/// <param name="grounded">trueならば、高さは考慮せず地面の位置を返す</param>
 	/// <returns>スクリーン座標</returns>
 	CVector2D CalcScreenPos(bool grounded = false) const;
+	CVector2D CalcScreenPos(const CVector3D& pos, bool grounded = false) const;
 
 	// 更新
 	virtual void Update();
@@ -32,6 +33,7 @@ public:
 	// 影描画
 	virtual void RenderShadow();
 	static bool CollisionCube(ObjectBase*b1,ObjectBase*b2);
+	void RenderCube();
 protected://継承しているとこだけ限定で使っていいよね
 	CVector3D m_pos;		// オブジェクトの座標
 	CVector3D m_Max;
