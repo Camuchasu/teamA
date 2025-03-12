@@ -28,4 +28,5 @@ void Bullet::Render()
 	m_img.Draw();
 	//‰e‚ð•t‚¯‚é‚±‚Æ‚ª‚Å‚«‚é
 	ObjectBase::RenderShadow();
+	RenderCube();
 }

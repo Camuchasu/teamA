@@ -18,8 +18,7 @@ TexAnimData enemy_anim_data[] =
 	{
 		new TexAnim[5]
 		{
-			{5, 6}, {6, 6}, {7, 6},
-			{8, 6}, {9, 6},
+			{1, 3}, {2, 3},
 		},
 		5
 	},
@@ -82,6 +81,7 @@ void Enemy::StateDeath()
 	{
 		// ステップ0：死亡アニメーションを再生
 	case 0:
+		//Kill();
 		m_img.ChangeAnimation((int)EAnimType::Death, false);
 		m_stateStep++;
 		break;

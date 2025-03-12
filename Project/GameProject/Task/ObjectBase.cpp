@@ -44,22 +44,27 @@ void ObjectBase::SetPos(const CVector3D& pos)
 // 3次元座標から2次元座標を計算
 CVector2D ObjectBase::CalcScreenPos(bool grounded) const
 {
+	return CalcScreenPos(m_pos, grounded);
+}
+
+CVector2D ObjectBase::CalcScreenPos(const CVector3D& pos, bool grounded) const
+{
 	CVector2D ret;
 
 	// X座標はそのまま設定
-	ret.x = m_pos.x - m_pos.z * 0.65;
+	ret.x = pos.x - pos.z * 0.65;
 	// 通常座標を求める場合
 	if (!grounded)
 	{
 		// Y座標は、3次元座標のY（高さ）とZ（奥行）を合わせる
-		float posZ = FIELD_CENTER_Z + m_pos.z;
-		ret.y = -m_pos.y + posZ;
+		float posZ = FIELD_CENTER_Z + pos.z;
+		ret.y = -pos.y + posZ;
 	}
 	// 高さを考慮しない地面の位置を求める場合
 	else
 	{
 		// Y座標は、3次元座標のZ（奥行）のみ反映する
-		ret.y = FIELD_CENTER_Z + m_pos.z;
+		ret.y = FIELD_CENTER_Z + pos.z;
 	}
 
 	return ret - m_scroll;
@@ -98,4 +103,14 @@ bool ObjectBase::CollisionCube(ObjectBase* b1, ObjectBase* b2)
 		return false;
 	}
 	return true;
+}
+
+void ObjectBase::RenderCube()
+{
+#ifdef _DEBUG
+	m_Max = m_pos + m_Cube;
+	m_Min = m_pos - m_Cube;
+	Utility::DrawQuad(CalcScreenPos(CVector3D(m_Min.x, m_Max.y, m_pos.z)),
+		CVector2D(m_Cube.x * 2, m_Cube.y * 2), CVector4D(1, 0, 0, 0.5f));
+#endif 
 }
