@@ -45,6 +45,7 @@ void Task::Kill()
 	//bool‚Íture‚©false‚µ‚©g‚¦‚È‚¢
 	m_isKill = true;
 }
+
 //íœƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚é‚©
 bool Task::IsKill() const
 {

@@ -147,7 +147,8 @@ void Init(void)
 	new Hp();
 	new EnemyManager();
 	new FlowerManager();
-	
+	//リザルトシーン
+	//new Result();
 }
 
 

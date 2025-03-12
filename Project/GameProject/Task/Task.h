@@ -14,6 +14,8 @@ enum {
 	eType_StarManager,
 	eType_Hp,
 	eType_Title,
+	eType_Result,
+	eType_Game,
 };
 enum class ETaskPrio
 {
@@ -22,6 +24,9 @@ enum class ETaskPrio
 	Other,
 	Object,//オブジェクト（プレイヤーとか敵とか）
 	UI,
+	Result,
+	Title,
+	Game,
 };
 
 
