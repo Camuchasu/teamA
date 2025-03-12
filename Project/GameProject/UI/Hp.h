@@ -8,5 +8,6 @@ public:
 	Hp();
 	void Update();
 	void Render();
+	static void DownHp();
 	static int m_Hp;
 };

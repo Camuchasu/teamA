@@ -120,5 +120,12 @@ void Flower::Collision(Task* b)
 			ChangeState(EState::Death);
 		}
 	}
+	case eType_Bullet: {
+		if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
+		{
+			//b->Kill();
+			ChangeState(EState::Death);
+		}
+	}
 	}
 }
