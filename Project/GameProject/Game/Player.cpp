@@ -44,6 +44,7 @@ TexAnimData Player::ANIM_DATA[] = {
 Player::Player(const CVector3D& pos, CVector3D& Cube)
 	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
+	,AttackCount(180)
 
 {
 	m_Cube = Cube;
@@ -51,6 +52,7 @@ Player::Player(const CVector3D& pos, CVector3D& Cube)
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
 	mp_image.SetCenter(90,180);
+	
 	
 	// プレイヤーの画像を読み込み
 /*	mp_image = CImage::CreateImage
@@ -77,7 +79,7 @@ void Player::Update()
 	case EState::Damage:	StateDamage();	break;
 	case EState::Death:	    StateDeath();	break;
 	}
-	m_pos.x += 30;
+	m_pos.x += 10;
 	mp_image.UpdateAnimation();
 
 	// Y軸（高さ）の移動を座標に反映
@@ -91,7 +93,7 @@ void Player::Update()
 		m_moveSpeedY = 0.0f;
 		m_isGrounded = true;
 	}
-
+	AttackCount--;
 }
 
 void Player::Render()
@@ -154,9 +156,10 @@ void Player::StateIdle()
 	{
 		ChangeState(EState::Jump);
 	}
-	if (PUSH(CInput::eMouseL))
+	if (PUSH(CInput::eMouseL) && AttackCount < 0)
 	{
 		ChangeState(EState::Attack);
+		AttackCount = 180;
 	}
 	
 }

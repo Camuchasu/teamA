@@ -34,6 +34,7 @@ public:
 
 	EState m_state;
 	int m_stateStep;
+	int AttackCount;
 
 
 private:
