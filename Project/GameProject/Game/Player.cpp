@@ -94,6 +94,11 @@ void Player::Render()
 	
 }
 
+void Player::Collison()
+{
+	
+}
+
 void Player::ChangeState(EState state)
 {
 	if (m_state == state) return;

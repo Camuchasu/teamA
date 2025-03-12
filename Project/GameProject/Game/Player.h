@@ -26,7 +26,9 @@ public:
 	void Update();// override;
 	// •`‰æˆ—
 	void Render();// override;
-
+	
+	void Collison();
+	
 	static TexAnimData ANIM_DATA[];
 
 	EState m_state;

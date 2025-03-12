@@ -1,5 +1,5 @@
 #include "Hp.h"
-int Hp::m_Hp(0);
+int Hp::m_Hp(3);
 Hp::Hp() : Task((int)ETaskPrio::UI, 0, eType_Hp)
 {
 	m_img = COPY_RESOURCE("Hp", CImage);
@@ -7,13 +7,16 @@ Hp::Hp() : Task((int)ETaskPrio::UI, 0, eType_Hp)
 
 void Hp::Update()
 {
+
 }
 
 void Hp::Render()
 {
 	m_img.SetSize(125, 125);
-	for (int i = 0; i < 3; i++) {
-		m_img.SetPos(64, 64);
+	
+	for (int i = 0; i < m_Hp; i++) {
+	
+		m_img.SetPos(200-100*i, 64);
 		m_img.Draw();
 	}
 }
