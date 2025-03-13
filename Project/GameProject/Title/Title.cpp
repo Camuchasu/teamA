@@ -12,7 +12,7 @@ Title::Title() : Task((int)ETaskPrio::Title, 0, eType_Title)
 void Title::Update()
 {
 	//ボタン１でタイトル破棄
-	if (m_cnt++ > 60 && PUSH(CInput::eButton5)) {
+	if (m_cnt++ > 1 && PUSH(CInput::eButton5)) {
 		//すべてのオブジェクトを破棄
 		TaskManager::Instance()->DeleteAll();
 		

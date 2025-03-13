@@ -13,9 +13,8 @@ Result::Result() : Task((int)ETaskPrio::Result, 0, eType_Result)
 	
 void Result::Update()
 {
-	
+	Score::s_score;
 	if (PUSH(CInput::eButton5)) {
-		
 		TaskManager::Instance()->DeleteAll();
 		new Game();
 		Score::s_score = 0;
