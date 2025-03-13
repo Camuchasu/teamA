@@ -14,7 +14,7 @@
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 {
-	new Player(CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
+	new Player(10,CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
 	// ÉJÉâÉXÇê∂ê¨
 	/*new Enemy(0,
 		CVector3D(0.0f, 0.0f, 0.0f), CVector3D(30, 30, 30));*/

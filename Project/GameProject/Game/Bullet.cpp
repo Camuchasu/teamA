@@ -1,6 +1,6 @@
 #include "Bullet.h"
 
-Bullet::Bullet(const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
+Bullet::Bullet(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin)
 	: ObjectBase(pos,eType_Bullet)
 {
 	m_img = COPY_RESOURCE("Bullet", CImage);

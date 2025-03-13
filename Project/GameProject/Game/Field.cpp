@@ -19,22 +19,22 @@ void Field::Render()
 {
     float sc;
     m_Sky.Draw();
-    if (Score::s_score < 3000) {
+    
         m_msc = ObjectBase::m_scroll.x;
-    }
-    else if(Score::s_score <= 3000 && Score::s_score == 5000) {
+   /* }
+    else if(Score::s_score >= 300 && Score::s_score <= 500) {
         m_msc = ObjectBase::m_scroll.x * 1.5;
     }
     else {
         m_msc = ObjectBase::m_scroll.x * 2;
-    }
+    }*/
     m_yuka.SetRect(m_msc, 0, m_msc + 1920, 704);
     m_yuka.SetPos(0,374);
     m_yuka.Draw();
-    sc = ObjectBase::m_scroll.x / 3;
+    sc = ObjectBase::m_scroll.x / 15;
     m_Yama.SetRect(sc, 0, sc + 1920, 376);
     m_Yama.Draw();
-    sc = ObjectBase::m_scroll.x / 1.5;
+    sc = ObjectBase::m_scroll.x / 3;
     m_kumo.SetRect(sc, 0, sc + 1920, 376);
     m_kumo.Draw();
 }

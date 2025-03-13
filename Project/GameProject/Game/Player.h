@@ -19,7 +19,7 @@ public:
 
 	CImage mp_image;
 	// コンストラクタ
-	Player(const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin);
+	Player(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin);
 	// デストラクタ
 	~Player();
 
@@ -35,6 +35,7 @@ public:
 	EState m_state;
 	int m_stateStep;
 	int AttackCount;
+	int GameCount;
 
 
 
@@ -51,6 +52,8 @@ private:
 	void StateDeath();
 
 	void Collision(Task* b);
+
+	int speed;
 	
 	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像
