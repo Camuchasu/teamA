@@ -37,6 +37,7 @@ public:
 	int AttackCount;
 
 
+
 private:
 	void ChangeState(EState state);
 	// ˆÚ“®ˆ—‚ÌXV

@@ -45,4 +45,5 @@ void Game::Update()
 
 void Game::Render()
 {
+
 }
