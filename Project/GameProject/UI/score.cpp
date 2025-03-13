@@ -28,3 +28,4 @@ void Score::DownScore(int sage)
 		Score::s_score = 0;
 	}
 }
+

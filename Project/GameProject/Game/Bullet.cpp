@@ -9,6 +9,7 @@ Bullet::Bullet(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cu
 	m_img.SetCenter(32,32);
 	m_MaxCube = cubeMax;
 	m_MinCube = cubeMin;
+	m_speed = speed;//スピードを設定する
 }
 
 Bullet::~Bullet()
@@ -18,8 +19,7 @@ Bullet::~Bullet()
 void Bullet::Update()
 {
 	m_img.UpdateAnimation();
-	const int move_speed = m_speed+100;
-	m_pos.x += move_speed;
+	m_pos.x += m_speed;
 }
 
 void Bullet::Render()

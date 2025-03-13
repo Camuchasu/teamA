@@ -4,6 +4,7 @@
 #include "UI/Hp.h"
 #include "Result.h"
 #include "UI/score.h"
+#include "task/TaskManager.h"
 
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
@@ -87,7 +88,7 @@ void Player::Update()
 		m_pos.x += 13;
 	}
 	if (GameCount >= 2400) {
-		m_pos.x += 15;
+		m_pos.x += 30;
 	}
 		ObjectBase::m_scroll.x = m_pos.x - 1920 / 4;
 		switch (m_state)
@@ -189,7 +190,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(m_speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
+		new Bullet(m_speed+30,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		AttackCount = 180;
 		m_stateStep++;
@@ -267,6 +268,7 @@ void Player::StateDeath()
 	mp_image.ChangeAnimation((int)EState::Death, false);
 	if (mp_image.CheckAnimationEnd());
 	{
+		TaskManager::Instance()->DeleteAll();
 		new Result();
 	}
 }
