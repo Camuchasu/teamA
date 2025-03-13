@@ -48,11 +48,9 @@ Player::Player(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cu
 	: ObjectBase(pos, eType_Player)
 	, m_stateStep(0)
 	,AttackCount(180)
-	,GameCount(300)
-	,speed(10)
+	,GameCount(0)
 
 {
-
 	mp_image = COPY_RESOURCE("Player", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
@@ -76,11 +74,21 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (GameCount == 0) {
-		//m_pos.x += m_speed;
-		GameCount = 300;
+	if (GameCount <= 600) {
+		m_pos.x += 5;
 	}
-
+	if (GameCount >= 600 && GameCount <1200) {
+		m_pos.x += 8;
+	}
+	if (GameCount >= 1200 && GameCount < 1800) {
+		m_pos.x += 10;
+	}
+	if (GameCount >= 1800 && GameCount < 2400) {
+		m_pos.x += 13;
+	}
+	if (GameCount >= 2400) {
+		m_pos.x += 15;
+	}
 		ObjectBase::m_scroll.x = m_pos.x - 1920 / 4;
 		switch (m_state)
 	{
@@ -90,7 +98,7 @@ void Player::Update()
 	case EState::Damage:	StateDamage();	break;
 	case EState::Death:	    StateDeath();	break;
 	}
-	m_pos.x += speed;
+//	m_pos.x += speed;
 	mp_image.UpdateAnimation();  
 
 	// Y軸（高さ）の移動を座標に反映
@@ -105,7 +113,7 @@ void Player::Update()
 		m_isGrounded = true;
 	}
 	AttackCount--;
-	GameCount--;
+	GameCount++;
 }
 
 void Player::Render()
@@ -170,7 +178,6 @@ void Player::StateIdle()
 	if (PUSH(CInput::eMouseL) && AttackCount < 0)
 	{
 		ChangeState(EState::Attack);
-		AttackCount = 180;
 	}
 	
 }
@@ -182,7 +189,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
+		new Bullet(m_speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		AttackCount = 180;
 		m_stateStep++;

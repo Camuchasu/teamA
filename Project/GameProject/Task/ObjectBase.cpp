@@ -107,7 +107,7 @@ bool ObjectBase::CollisionCube(ObjectBase* b1, ObjectBase* b2)
 
 void ObjectBase::RenderCube()
 {
-#ifdef _DEBUG
+#ifdef _DEBUG	
 	m_Max = m_pos + m_MaxCube;
 	m_Min = m_pos - m_MinCube;
 	Utility::DrawQuad(CalcScreenPos(CVector3D(m_Min.x, m_Max.y, m_pos.z)),

@@ -53,7 +53,7 @@ private:
 
 	void Collision(Task* b);
 
-	int speed;
+	int m_speed;
 	
 	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像

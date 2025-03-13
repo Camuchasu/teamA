@@ -21,13 +21,6 @@ void Field::Render()
     m_Sky.Draw();
     
         m_msc = ObjectBase::m_scroll.x;
-   /* }
-    else if(Score::s_score >= 300 && Score::s_score <= 500) {
-        m_msc = ObjectBase::m_scroll.x * 1.5;
-    }
-    else {
-        m_msc = ObjectBase::m_scroll.x * 2;
-    }*/
     m_yuka.SetRect(m_msc, 0, m_msc + 1920, 704);
     m_yuka.SetPos(0,374);
     m_yuka.Draw();
