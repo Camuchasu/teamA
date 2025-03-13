@@ -3,6 +3,7 @@
 #include "Game/StarManager.h"
 #include "Game/Star.h"
 #include "Game/flower.h"
+#include "Game/Field.h"
 
 
 EnemyManager::EnemyManager()

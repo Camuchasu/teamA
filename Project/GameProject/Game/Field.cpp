@@ -1,5 +1,7 @@
 #include "Field.h"
 #include "../Task/ObjectBase.h"
+#include "UI/Score.h"
+float Field::m_msc(ObjectBase::m_scroll.x);
 Field::Field(const CVector3D& pos)
     :Task((int)ETaskPrio::Field, 0,eType_Field)
 {
@@ -17,8 +19,16 @@ void Field::Render()
 {
     float sc;
     m_Sky.Draw();
-    sc = ObjectBase::m_scroll.x;
-    m_yuka.SetRect(sc, 0, sc + 1920, 704);
+    if (Score::s_score < 3000) {
+        m_msc = ObjectBase::m_scroll.x;
+    }
+    else if(Score::s_score <= 3000 && Score::s_score == 5000) {
+        m_msc = ObjectBase::m_scroll.x * 1.5;
+    }
+    else {
+        m_msc = ObjectBase::m_scroll.x * 2;
+    }
+    m_yuka.SetRect(m_msc, 0, m_msc + 1920, 704);
     m_yuka.SetPos(0,374);
     m_yuka.Draw();
     sc = ObjectBase::m_scroll.x / 3;

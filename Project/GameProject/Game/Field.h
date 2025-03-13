@@ -6,7 +6,7 @@ private:
     int m_pos;
 public:
     Field(const CVector3D& pos);
-
+  
     void Update();
     void Render();
 
@@ -14,4 +14,5 @@ public:
     CImage m_Yama;
     CImage m_yuka;
     CImage m_kumo;
+    static float m_msc;
 };
