@@ -1,7 +1,12 @@
 #include "Title.h"
+#include "Task/TaskManager.h"
+#include "Game/Game.h"
 int Title::m_cnt(0);
 Title::Title() : Task((int)ETaskPrio::Title, 0, eType_Title)
 {
+	//画像複製
+	m_img = COPY_RESOURCE("Title", CImage);
+	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 void Title::Update()
@@ -9,13 +14,15 @@ void Title::Update()
 	//ボタン１でタイトル破棄
 	if (m_cnt++ > 60 && PUSH(CInput::eButton1)) {
 		//すべてのオブジェクトを破棄
-		Task::Kill();
+		TaskManager::Instance()->DeleteAll();
+		
 		//ゲームシーンへ
-
-		//Base::Add(new Game());
+		new Game();
+		
 	}
 }
 
 void Title::Render()
 {
+	m_img.Draw();
 }
