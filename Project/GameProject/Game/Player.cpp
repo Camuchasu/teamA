@@ -176,6 +176,7 @@ void Player::StateAttack()
 	case 0:
 		new Bullet(CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
+		AttackCount = 180;
 		m_stateStep++;
 		break;
 		// ステップ1：アニメーション終了待ち
@@ -189,6 +190,7 @@ void Player::StateAttack()
 			else {
 				ChangeState(EState::Idle);
 			}
+
 		}
 		break;
 	}
@@ -204,6 +206,7 @@ void Player::StateJump()
 	case 0:
 		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
 		// 接地状態を解除する
+		mp_image.ChangeAnimation((int)EState::Jump, false);
 		if (m_isGrounded == true)
 		{
 			m_moveSpeedY = JUMP_SPEED;
@@ -213,7 +216,7 @@ void Player::StateJump()
 		break;
 		// ステップ1：ジャンプ終了
 	case 1:
-		if (PUSH(CInput::eMouseL))
+		if (PUSH(CInput::eMouseL) && AttackCount < 0)
 		{
 			ChangeState(EState::Attack);
 		}
@@ -225,10 +228,9 @@ void Player::StateJump()
 		}
 		break;
 	}
-
 	// 移動処理
-	bool isMove = UpdateMove();
-	mp_image.ChangeAnimation((int)EState::Idle);
+	//bool isMove = UpdateMove();
+	mp_image.ChangeAnimation((int)EState::Jump);
 }
 
 void Player::StateDamage()
