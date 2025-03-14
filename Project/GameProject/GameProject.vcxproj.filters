@@ -44,11 +44,13 @@
     <ClInclude Include="UI\Hp.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\StarManager.h" />
     <ClInclude Include="Title\Title.h">
       <Filter>Title</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StarManager.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -96,11 +98,13 @@
     <ClCompile Include="UI\Hp.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\StarManager.cpp" />
     <ClCompile Include="Title\Title.cpp">
       <Filter>Title</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StarManager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
