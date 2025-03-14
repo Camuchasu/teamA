@@ -214,7 +214,8 @@ void Player::StateAttack()
 	case 0:
 		new Bullet(m_speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
-		SOUND("Attack")->Play();
+		SOUND("Player_Attackv")->Play();
+		SOUND("Player_Attack")->Play();
 		AttackCount = 180;
 		m_stateStep++;
 		break;
