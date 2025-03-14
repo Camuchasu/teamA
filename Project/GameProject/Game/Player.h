@@ -37,7 +37,7 @@ public:
 	int AttackCount;
 	int GameCount;
 
-
+	int m_speed;
 
 private:
 	void ChangeState(EState state);
@@ -53,7 +53,7 @@ private:
 
 	void Collision(Task* b);
 
-	int m_speed;
+	
 	
 	float m_moveSpeedY;	// Y軸（高さ）の移動速度
 	//CImage* mp_image;	// プレイヤーの画像

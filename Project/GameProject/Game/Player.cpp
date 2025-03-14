@@ -76,19 +76,24 @@ Player::~Player()
 void Player::Update()
 {
 	if (GameCount <= 600) {
-		m_pos.x += 5;
+		m_speed = 5;
+		m_pos.x += m_speed;
 	}
 	if (GameCount >= 600 && GameCount <1200) {
-		m_pos.x += 8;
+		m_speed = 8;
+		m_pos.x += m_speed;
 	}
 	if (GameCount >= 1200 && GameCount < 1800) {
-		m_pos.x += 10;
+		m_speed = 10;
+		m_pos.x += m_speed;
 	}
 	if (GameCount >= 1800 && GameCount < 2400) {
-		m_pos.x += 13;
+		m_speed = 15;
+		m_pos.x += m_speed;
 	}
 	if (GameCount >= 2400) {
-		m_pos.x += 30;
+		m_speed = 20;
+		m_pos.x += m_speed;
 	}
 		ObjectBase::m_scroll.x = m_pos.x - 1920 / 4;
 		switch (m_state)
@@ -176,7 +181,7 @@ void Player::StateIdle()
 	{
 		ChangeState(EState::Jump);
 	}
-	if (PUSH(CInput::eMouseL) && AttackCount < 0)
+ 	if (PUSH(CInput::eMouseL) && AttackCount <= 0)
 	{
 		ChangeState(EState::Attack);
 	}
@@ -190,7 +195,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(m_speed+30,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
+		new Bullet(m_speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		AttackCount = 180;
 		m_stateStep++;
