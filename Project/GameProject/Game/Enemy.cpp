@@ -83,6 +83,7 @@ void Enemy::StateDeath()
 	case 0:
 		//Kill();
 		m_img.ChangeAnimation((int)EAnimType::Death, false);
+		SOUND("Enemy_Death")->Play();
 		m_stateStep++;
 		break;
 		// ステップ1：アニメーション終了待ち

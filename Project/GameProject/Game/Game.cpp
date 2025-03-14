@@ -14,6 +14,8 @@
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 {
+	SOUND("Attack")->Load("Sound/Attack.wav", 1);
+	SOUND("Enemy_Death")->Load("Sound/Enemy_Death.wav", 1);
 	new Player(10,CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
 	// ƒJƒ‰ƒX‚ğ¶¬
 	/*new Enemy(0,
