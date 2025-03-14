@@ -18,6 +18,8 @@ public:
 	}; 
 
 	CImage mp_image;
+	CImage m_img;
+	CImage m_Cool;
 	// コンストラクタ
 	Player(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cubeMin);
 	// デストラクタ
@@ -36,9 +38,16 @@ public:
 	int m_stateStep;
 	int AttackCount;
 	int GameCount;
-
 	int m_speed;
-
+	//ゲージ用画像
+	CImage img;
+	//ゲージの幅
+	int width = 60;
+	//ゲージの高さ
+	int height = 16;
+	
+	//最大クールタイム
+	int MAXAttackCount = 180;
 private:
 	void ChangeState(EState state);
 	// 移動処理の更新

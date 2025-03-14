@@ -129,11 +129,10 @@ void Init(void)
 	ADD_RESOURCE("Hp", CImage::CreateImage("Image/Hp.png"));
 	ADD_RESOURCE("Title", CImage::CreateImage("Image/title.png"));
 	ADD_RESOURCE("Result", CImage::CreateImage("Image/Result.png"));
-
+	ADD_RESOURCE("CoolTime", CImage::CreateImage("Image/gauge.png"));
 
 	//new Game();
 	new Title();
-	
 }
 
 

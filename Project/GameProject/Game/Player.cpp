@@ -53,6 +53,7 @@ Player::Player(int speed,const CVector3D& pos, CVector3D& cubeMax, CVector3D& cu
 
 {
 	mp_image = COPY_RESOURCE("Player", CImage);
+	img = COPY_RESOURCE("CoolTime", CImage);
 	mp_image.ChangeAnimation(0);
 	mp_image.SetSize(180, 180);
 	mp_image.SetCenter(90,180);
@@ -126,6 +127,22 @@ void Player::Render()
 {
 	//‰e‚ð•t‚¯‚é‚±‚Æ‚ª‚Å‚«‚é
 	ObjectBase::RenderShadow();
+	img.SetPos(CalcScreenPos()+CVector2D(0,-180));
+	//ƒQ[ƒW”wŒiiÔj
+	img.SetSize(width, height);
+	img.SetRect(0,64,width,128);
+	img.Draw();
+	//ƒQ[ƒW‚Ì•‚ðŒvŽZ(—Î)
+	int w = width * min(1.0,(1-AttackCount / (float)MAXAttackCount));
+	img.SetSize(w, height);
+	if (w >= width)
+	{
+		img.SetRect(0, 128, width, 128+64);
+	}
+	else {
+		img.SetRect(0, 0, width, 64);
+	}
+		img.Draw();
 	mp_image.SetPos(CalcScreenPos());
 	mp_image.Draw();
 	RenderCube();

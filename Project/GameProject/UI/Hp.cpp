@@ -16,7 +16,7 @@ void Hp::Render()
 	
 	for (int i = 0; i < m_Hp; i++) {
 	
-		m_img.SetPos(200-100*i, 64);
+		m_img.SetPos(0+100*i, 64);
 		m_img.Draw();
 	}
 }
