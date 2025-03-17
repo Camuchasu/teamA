@@ -10,8 +10,9 @@ EnemyManager::EnemyManager()
 	:Task((int)ETaskPrio::Other, 0, eType_EnemyManager)
 	, enemyTimer(60 * 2)
 	, FlowerTimer(60 * 3)
-	, StarTimer(60 * 3)
+	, StarTimer(60 * 5)
 	, EnemyLine(0)
+	
 	
 {
 }
@@ -27,7 +28,7 @@ void EnemyManager::Update()
 		enemyTimer--;
 		if (enemyTimer < 0) {
 			int EnemyType = rand() % 2;
-		        EnemyLine = rand() % 4;;
+		        EnemyLine = rand() % 4;
 
 
 			new Enemy(EnemyType,
@@ -38,16 +39,22 @@ void EnemyManager::Update()
 		FlowerTimer--;
 		if (time >= 0) {
 			if (FlowerTimer < 0) {
+				int Flowerapper[4] = { 0,0,0,0 };
 				int FlowerType = rand() % 2;
-				    FlowerLine = rand() % 4;
-					while (EnemyLine == FlowerLine)
-					{
-						FlowerLine = rand() % 4;
-				     }
-
-				new Flower(FlowerType,
-					CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, 34 + FlowerLine * 174.0f - 348), CVector3D(40, 80, 20), CVector3D(40, 0, 20));
-
+				   
+					int n = 1+rand() % 4;
+						for (int i = 0; i < n; i++) {
+							FlowerLine = rand() % 4;
+						while(Flowerapper[FlowerLine] != 0)
+						{
+							FlowerLine = rand() % 4;
+						}
+							new Flower(FlowerType,
+								CVector3D(1920.0f + ObjectBase::m_scroll.x, 0.0f, FlowerLine * 174.0f - 348),
+								CVector3D(40, 80, 20), CVector3D(40, 0, 20));
+							Flowerapper[FlowerLine] += 1;
+						}
+					
 				FlowerTimer = 60 * 3;
 			}
 		}
