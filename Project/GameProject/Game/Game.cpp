@@ -13,7 +13,10 @@
 #include "Title/Title.h"
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
+, m_Game_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
 {
+
+	
 	SOUND("Player_Attack")->Load("Sound/Player_Attack.mp3", 1);
 	SOUND("Player_Attackv")->Load("Sound/Player_Attackv.mp3", 1);
 	SOUND("Player_Damage")->Load("Sound/Player_Damage.mp3", 1);
@@ -49,5 +52,9 @@ void Game::Update()
 
 void Game::Render()
 {
-
+	//•¶Žš•\Ž¦
+	/*m_Game_text.Draw(500, 150, 0, 0, 0, "+100");
+	m_Game_text.Draw(700, 150, 0, 0, 0, "+200");
+	m_Game_text.Draw(900, 150, 0, 0, 0, "+100");
+	m_Game_text.Draw(1100, 150, 0, 0, 0, "-500");*/
 }

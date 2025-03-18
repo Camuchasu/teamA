@@ -4,6 +4,7 @@
 int Title::m_cnt(0);
 Title::Title() : Task((int)ETaskPrio::Title, 0, eType_Title)
 {
+	SOUND("Title")->Play();
 	//画像複製
 	m_img = COPY_RESOURCE("Title", CImage);
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -15,7 +16,7 @@ void Title::Update()
 	if (m_cnt++ > 1 && PUSH(CInput::eButton5)) {
 		//すべてのオブジェクトを破棄
 		TaskManager::Instance()->DeleteAll();
-		
+		SOUND("Title")->Stop();
 		//ゲームシーンへ
 		new Game();
 		

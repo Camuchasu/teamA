@@ -9,7 +9,7 @@
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
-#define JUMP_SPEED 9.0f	// ジャンプ速度
+#define JUMP_SPEED 9.0f	    // ジャンプ速度
 #define GRAVITY -0.2f		// 重力
 
 static TexAnim _idle[] = {
@@ -212,7 +212,7 @@ void Player::StateAttack()
 	{
 		// ステップ0：攻撃アニメーションに切り替え
 	case 0:
-		new Bullet(m_speed+10,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
+		new Bullet(m_speed+15,CVector3D(m_pos.x, m_pos.y+64, m_pos.z), CVector3D(40, 40, 20), CVector3D(40, 40, 20));
 		mp_image.ChangeAnimation((int)EState::Attack, false);
 		SOUND("Player_Attackv")->Play();
 		SOUND("Player_Attack")->Play();
@@ -244,6 +244,7 @@ void Player::StateJump()
 	{
 		// ステップ0：ジャンプ開始
 	case 0:
+		SOUND("Player_Jump")->Play();
 		// Y軸（高さ）の移動速度にジャンプを速度を設定し、
 		// 接地状態を解除する
 		mp_image.ChangeAnimation((int)EState::Jump, false);
@@ -275,6 +276,7 @@ void Player::StateJump()
 
 void Player::StateDamage()
 {
+	SOUND("Player_Damage")->Play();
 	mp_image.ChangeAnimation((int)EState::Damage,false);
 	if (mp_image.CheckAnimationEnd())
 	{
@@ -289,6 +291,7 @@ void Player::StateDamage()
 
 void Player::StateDeath()
 {
+	SOUND("Player_Death")->Play();
 	mp_image.ChangeAnimation((int)EState::Death, false);
 	if (mp_image.CheckAnimationEnd());
 	{

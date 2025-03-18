@@ -18,7 +18,7 @@ TexAnimData enemy_anim_data[] =
 	{
 		new TexAnim[5]
 		{
-			{1, 2}, {2, 2},
+			{1, 2}, {2, 1},
 		},
 		5
 	},
@@ -62,7 +62,7 @@ void Enemy::ChangeState(EState state)
 void Enemy::StateIdle()
 {
 	//ˆÚ“®—Ê
-	const float move_speed = 0;
+	const float move_speed = 3;
 	//ˆÚ“®ƒtƒ‰ƒO
 	bool move_flag = false;
 	//ˆÚ“®—Ê‚ğİ’è
