@@ -53,6 +53,9 @@
     <ClInclude Include="Game\StarManager.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Title\Load.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Game\StarManager.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Title\Load.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
