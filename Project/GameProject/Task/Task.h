@@ -14,6 +14,7 @@ enum {
 	eType_StarManager,
 	eType_Hp,
 	eType_Title,
+	eType_Load,
 	eType_Result,
 	eType_Game,
 };

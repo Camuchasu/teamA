@@ -109,7 +109,7 @@ void Init(void)
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png", Player::ANIM_DATA,32,32));
 	
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet3.png", Player::ANIM_DATA, 32, 32));
-
+	ADD_RESOURCE("Load", CImage::CreateImage("Image/Load.png"));
 
 
 

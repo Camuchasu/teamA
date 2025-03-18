@@ -1,6 +1,8 @@
 #include "Title.h"
+#include "Title/Load.h"
 #include "Task/TaskManager.h"
 #include "Game/Game.h"
+
 int Title::m_cnt(0);
 Title::Title() : Task((int)ETaskPrio::Title, 0, eType_Title)
 {
@@ -17,8 +19,8 @@ void Title::Update()
 		//すべてのオブジェクトを破棄
 		TaskManager::Instance()->DeleteAll();
 		SOUND("Title")->Stop();
-		//ゲームシーンへ
-		new Game();
+		//ロードシーンへ
+		new Load();
 		
 	}
 }
