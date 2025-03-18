@@ -18,8 +18,7 @@ TexAnimData Star_anim_data[] =
 	{
 		new TexAnim[5]
 		{
-			{5, 6}, {6, 6}, {7, 6},
-			{8, 6}, {9, 6},
+			{2, 6}, {3, 6}, 
 		},
 		5
 	},
@@ -47,6 +46,7 @@ Star::~Star()
 // Œ»İ‚Ìó‘Ô‚ğØ‚è‘Ö‚¦
 void Star::ChangeState(EState state)
 {
+	
 	if (m_state == state) return;
 
 	m_state = state;
@@ -117,6 +117,7 @@ void Star::Collision(Task* b)
 		{
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
+				SOUND("Star")->Play();
 				Kill();
 				Score::AddScore(100);
 			}

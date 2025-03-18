@@ -75,6 +75,7 @@ void Flower::StateDeath()
 		// アニメーションが終了したら、削除
 		if (m_img.CheckAnimationEnd())
 		{
+			SOUND("Flower")->Play();
 			//削除フラグを立てる
 			Kill();
 			

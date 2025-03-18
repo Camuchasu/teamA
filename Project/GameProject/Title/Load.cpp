@@ -7,6 +7,7 @@ Load::Load()
 	,LoadCount(60)
 {
 	m_Load = COPY_RESOURCE("Load", CImage);
+	m_Load.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 void Load::Update()

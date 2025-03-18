@@ -9,8 +9,8 @@
 
 #define MOVE_SPEED_X 5.0f	// 横方向の移動速度
 #define MOVE_SPEED_Z 3.0f	// 奥方向の移動速度
-#define JUMP_SPEED 9.0f	    // ジャンプ速度
-#define GRAVITY -0.2f		// 重力
+#define JUMP_SPEED 30.0f	    // ジャンプ速度
+#define GRAVITY -1.8f		// 重力
 
 static TexAnim _idle[] = {
 	{0,10},
@@ -23,10 +23,10 @@ static TexAnim _Attack[] = {
 };
 
 static TexAnim _Jump[] = {
-	{4,10},
-	{5,10},
-	{6,10},
-	{7,10},
+	{4,5},
+	{5,5},
+	{6,5},
+	{7,5},
 };
 static TexAnim _Damage[] = {
 	{12,10},
@@ -137,10 +137,11 @@ void Player::Render()
 	img.SetSize(w, height);
 	if (w >= width)
 	{
-		img.SetRect(0, 128, width, 128+64);
+		img.SetRect(0, 0, width, 64);
 	}
 	else {
-		img.SetRect(0, 0, width, 64);
+		img.SetRect(0, 128, width, 128 + 64);
+		
 	}
 		img.Draw();
 	mp_image.SetPos(CalcScreenPos());
@@ -295,6 +296,7 @@ void Player::StateDeath()
 	mp_image.ChangeAnimation((int)EState::Death, false);
 	if (mp_image.CheckAnimationEnd());
 	{
+		SOUND("GameBGM")->Stop();
 		TaskManager::Instance()->DeleteAll();
 		new Result();
 	}

@@ -15,6 +15,7 @@
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 , m_Game_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
 {
+
 	m_Enemyhyouzi = COPY_RESOURCE("Enemyhyouzi", CImage);
 	m_Starhyouzi = COPY_RESOURCE("Starhyouzi", CImage);
 	m_Flowerhyouzi = COPY_RESOURCE("Flowerhyouzi", CImage);

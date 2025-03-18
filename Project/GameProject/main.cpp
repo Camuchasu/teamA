@@ -109,7 +109,7 @@ void Init(void)
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png", Player::ANIM_DATA,32,32));
 	
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet3.png", Player::ANIM_DATA, 32, 32));
-	ADD_RESOURCE("Load", CImage::CreateImage("Image/Load.png"));
+	ADD_RESOURCE("Load", CImage::CreateImage("Image/Load1.png"));
 
 
 
@@ -119,7 +119,7 @@ void Init(void)
 
 	//¼‘º
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
-	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
+	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star1.png", enemy_anim_data, 32, 32));
 	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama.png"));
@@ -138,6 +138,8 @@ void Init(void)
 	SOUND("Player_Jump")->Load("Sound/Player_Jump.wav", 1);
 	SOUND("Player_Attack")->Load("Sound/Player_Attack.mp3", 1);
 	SOUND("Enemy_Death")->Load("Sound/Enemy_Death.mp3", 1);
+	SOUND("Star")->Load("Sound/Star.mp3", 1);
+	SOUND("Flower")->Load("Sound/Flower.mp3", 1);
 	SOUND("Title")->Load("Sound/TitleBGM.mp3", 1);
 	SOUND("GameBGM")->Load("Sound/GameBGM.mp3", 1);
 	//new Game();

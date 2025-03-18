@@ -8,8 +8,8 @@
 
 EnemyManager::EnemyManager()
 	:Task((int)ETaskPrio::Other, 0, eType_EnemyManager)
-	, enemyTimer(60 * 1.5)
-	, FlowerTimer(60 * 3)
+	, enemyTimer(60 * 0.7)
+	, FlowerTimer(60 * 3.5)
 	, StarTimer(60 * 5)
 	, EnemyLine(0)
 	
