@@ -21,6 +21,7 @@ Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 	SOUND("Player_Jump")->Load("Sound/Player_Jump.wav", 1);
 	SOUND("Player_Attack")->Load("Sound/Player_Attack.mp3", 1);
 	SOUND("Enemy_Death")->Load("Sound/Enemy_Death.mp3", 1);
+	SOUND("Title")->Load("Sound/TitleBGM.mp3", 1);
 	new Player(10,CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
 	// ƒJƒ‰ƒX‚ğ¶¬
 	/*new Enemy(0,

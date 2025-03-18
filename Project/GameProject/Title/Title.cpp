@@ -4,6 +4,7 @@
 int Title::m_cnt(0);
 Title::Title() : Task((int)ETaskPrio::Title, 0, eType_Title)
 {
+	SOUND("Title")->Play();
 	//‰æ‘œ•¡»
 	m_img = COPY_RESOURCE("Title", CImage);
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
