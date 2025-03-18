@@ -18,7 +18,7 @@ TexAnimData enemy_anim_data[] =
 	{
 		new TexAnim[5]
 		{
-			{1, 2}, {2, 2},
+			{1, 2}, {2, 1},
 		},
 		5
 	},

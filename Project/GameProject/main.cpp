@@ -122,8 +122,8 @@ void Init(void)
 	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
 	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
-	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama1.png"));
-	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka.png"));
+	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama.png"));
+	ADD_RESOURCE("yuka", CImage::CreateImage("Image/yuka1.png"));
 	ADD_RESOURCE("kumo", CImage::CreateImage("Image/kumo.png"));
 	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
 	ADD_RESOURCE("Hp", CImage::CreateImage("Image/Hp.png"));
