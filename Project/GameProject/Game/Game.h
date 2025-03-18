@@ -4,6 +4,9 @@
 class Game : public Task
 {
 public:
+	CImage m_Enemyhyouzi;
+	CImage m_Starhyouzi;
+	CImage m_Flowerhyouzi;
 	 CFont m_Game_text;
 	Game();
 	~Game();

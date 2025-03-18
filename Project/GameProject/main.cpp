@@ -130,12 +130,16 @@ void Init(void)
 	ADD_RESOURCE("Title", CImage::CreateImage("Image/title.png"));
 	ADD_RESOURCE("Result", CImage::CreateImage("Image/Result.png"));
 	ADD_RESOURCE("CoolTime", CImage::CreateImage("Image/gauge.png"));
+	ADD_RESOURCE("Enemyhyouzi", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));
+	ADD_RESOURCE("Starhyouzi", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
+	ADD_RESOURCE("Flowerhyouzi", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	SOUND("Player_Attackv")->Load("Sound/Player_Attackv.mp3", 1);
 	SOUND("Player_Damage")->Load("Sound/Player_Damage.mp3", 1);
 	SOUND("Player_Jump")->Load("Sound/Player_Jump.wav", 1);
 	SOUND("Player_Attack")->Load("Sound/Player_Attack.mp3", 1);
 	SOUND("Enemy_Death")->Load("Sound/Enemy_Death.mp3", 1);
 	SOUND("Title")->Load("Sound/TitleBGM.mp3", 1);
+	SOUND("GameBGM")->Load("Sound/GameBGM.mp3", 1);
 	//new Game();
 	new Title();
 }
