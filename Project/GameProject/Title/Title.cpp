@@ -16,7 +16,7 @@ void Title::Update()
 	if (m_cnt++ > 1 && PUSH(CInput::eButton5)) {
 		//すべてのオブジェクトを破棄
 		TaskManager::Instance()->DeleteAll();
-		
+		SOUND("Title")->Stop();
 		//ゲームシーンへ
 		new Game();
 		
