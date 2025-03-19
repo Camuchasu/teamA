@@ -110,7 +110,7 @@ void Init(void)
 	
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet3.png", Player::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Load", CImage::CreateImage("Image/Load1.png"));
-
+	SOUND("SpeedUp")->Load("Sound/SpeedUp.mp3", 1);
 
 
 
@@ -119,7 +119,7 @@ void Init(void)
 
 	//¼‘º
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data,32 , 32));
-	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star1.png", enemy_anim_data, 32, 32));
+	ADD_RESOURCE("Star", CImage::CreateImage("Image/Star1.png", Star_anim_data, 32, 32));
 	ADD_RESOURCE("Flower", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	ADD_RESOURCE("yama", CImage::CreateImage("Image/yama.png"));
@@ -131,7 +131,8 @@ void Init(void)
 	ADD_RESOURCE("Result", CImage::CreateImage("Image/Result.png"));
 	ADD_RESOURCE("CoolTime", CImage::CreateImage("Image/gauge.png"));
 	ADD_RESOURCE("Enemyhyouzi", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));
-	ADD_RESOURCE("Starhyouzi", CImage::CreateImage("Image/Star.png", enemy_anim_data, 800, 764));
+	ADD_RESOURCE("Enemyhyouzi2", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));
+	ADD_RESOURCE("Starhyouzi", CImage::CreateImage("Image/Star1.png", Star_anim_data, 32, 32));
 	ADD_RESOURCE("Flowerhyouzi", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
 	SOUND("Player_Attackv")->Load("Sound/Player_Attackv.mp3", 1);
 	SOUND("Player_Damage")->Load("Sound/Player_Damage.mp3", 1);

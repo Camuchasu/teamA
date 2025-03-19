@@ -4,7 +4,6 @@ class TaskManager;
 enum {
 	eType_Player,
 	eType_Enemy,
-	eType_Star,
 	eType_Flower,
 	eType_Bullet,
 	eType_Field,
@@ -17,6 +16,7 @@ enum {
 	eType_Load,
 	eType_Result,
 	eType_Game,
+	eType_Star,
 };
 enum class ETaskPrio
 {

@@ -8,7 +8,7 @@ public:
 	CFont m_title_text;
 
 	static int m_cnt;
-
+	int TitleCount;
 	Title();
 	void Update();
 	void Render();
