@@ -136,7 +136,7 @@ void Enemy::Collision(Task* b)
 					Score::AddScore(100);
 				}
 				else {
-					Score::AddScore(200);
+					Score::AddScore(300);
 				}
 			}
 		}
