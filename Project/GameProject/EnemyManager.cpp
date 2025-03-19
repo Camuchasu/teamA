@@ -27,16 +27,53 @@ void EnemyManager::Update()
 	if (time >= 0) {
 		enemyTimer--;
 		if (enemyTimer < 0) {
-			int EnemyType = rand() % 2;
-		        EnemyLine = rand() % 4;
+			//カスタムによってプログラムを変えていく（２列決めたり、花も一緒にしたりなど）
+			int Enemyapper[11][4] = {
+			{ 1,1,0,3 },//0
+			{ 3,0,1,1 },//1
+			{ 1,1,1,1 },//2
+			{ 1,2,1,2 },//3
+			{ 2,2,2,2 },//4
+			{ 0,0,0,3 },//5
+			{ 3,1,3,1 },//6
+			{ 3,3,3,3 },//7
+			{ 2,0,1,0 },//8
+			{ 2,1,2,1 },//9
+			{ 1,2,0,1 },//10
+			};
+			
+			EnemyLine = rand() % 4;
+			
+			int EnemyGroup = rand() % 10;//Enemyapperの配列の位置決め
+			for (EnemyLine = 0; EnemyLine < 4; EnemyLine++)
+			{
+				int EnemyType = rand() % 2;//空中のカラスか地上のカラスか
+				if (Enemyapper[EnemyGroup][EnemyLine] == 1) {
 
+					new Enemy(EnemyType,
+						CVector3D(1920.0f + ObjectBase::m_scroll.x,
+							EnemyType * 200.0f, 34 + EnemyLine * 174.0f - 348),
+						CVector3D(64, 120, 20), CVector3D(64, 0, 20));
 
-			new Enemy(EnemyType,
-				CVector3D(1920.0f + ObjectBase::m_scroll.x, EnemyType*200.0f, 34+EnemyLine*174.0f-348), CVector3D(64, 120, 20), CVector3D(64, 0, 20));
+				}
+				if (Enemyapper[EnemyGroup][EnemyLine] == 2) {
+					new Flower(0,
+						CVector3D(1920.0f + ObjectBase::m_scroll.x,
+							0, 34 + EnemyLine * 174.0f - 348),
+						CVector3D(64, 120, 20), CVector3D(64, 0, 20));
+				}
+				if (Enemyapper[EnemyGroup][EnemyLine] == 3) {
+					new Star(0,
+						CVector3D(1920.0f + ObjectBase::m_scroll.x,
+							0, 34 + EnemyLine * 174.0f - 348),
+						CVector3D(64, 120, 20), CVector3D(64, 0, 20));
+				}
+			}
+
 
 			enemyTimer = 60 * 3;
 		}
-		FlowerTimer--;
+		/*FlowerTimer--;
 		if (time >= 0) {
 			if (FlowerTimer < 0) {
 				int Flowerapper[4] = { 0,0,0,0 };              //レーンの初期値
@@ -56,8 +93,8 @@ void EnemyManager::Update()
 					
 				FlowerTimer = 60 * 3;
 			}
-		}
-		StarTimer--;
+		}*/
+		/*StarTimer--;
 		if (time >= 0) {
 			if (StarTimer < 0) {
 				int StarType = rand() % 2;
@@ -72,6 +109,6 @@ void EnemyManager::Update()
 
 				StarTimer = 60 * 3;
 			}
-		}
+		}*/
 	}
 }

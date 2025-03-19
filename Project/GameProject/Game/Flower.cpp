@@ -79,7 +79,7 @@ void Flower::StateDeath()
 			//íœƒtƒ‰ƒO‚ğ—§‚Ä‚é
 			Kill();
 			
-				Score::DownScore(500);
+				Score::DownScore(200);
 			
 			
 		}
