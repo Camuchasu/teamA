@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="Game\Bullet.h" />
+    <ClInclude Include="Game\Effect.h" />
     <ClInclude Include="Game\Enemy.h" />
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\Flower.h" />
@@ -42,6 +43,7 @@
   <ItemGroup>
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="Game\Bullet.cpp" />
+    <ClCompile Include="Game\Effect.cpp" />
     <ClCompile Include="Game\Enemy.cpp" />
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Flower.cpp" />
