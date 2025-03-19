@@ -5,7 +5,7 @@
 #include "UI/Hp.h"
 
 Result::Result() : Task((int)ETaskPrio::Result, 0, eType_Result)
-,m_Result_text("C:\\Windows\\Fonts\\msgothic.ttc", 40)
+,m_Result_text("C:\\Windows\\Fonts\\msgothic.ttc", 80)
 {
 
 	//画像複製
@@ -36,5 +36,5 @@ void Result::Render()
 		m_scr.SetPos(1150 - 64 * i, 1080/2);
 		m_scr.Draw();
 	}
-	m_Result_text.Draw(550, 200, 0, 0, 0, "獲得スコア！！");
+	m_Result_text.Draw(700, 1080/2-100, 0, 0, 0, "獲得スコア！！");
 }
