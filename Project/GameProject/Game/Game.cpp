@@ -13,10 +13,12 @@
 #include "Title/Title.h"
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
-, m_Game_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
+, m_Game_text("C:\\Windows\\Fonts\\msgothic.ttc", 40)
+, GameCount(0)
 {
-
+	SpeedUp = COPY_RESOURCE("SpeedUp", CImage);
 	m_Enemyhyouzi = COPY_RESOURCE("Enemyhyouzi", CImage);
+	m_Enemyhyouzi2 = COPY_RESOURCE("Enemyhyouzi2", CImage);
 	m_Starhyouzi = COPY_RESOURCE("Starhyouzi", CImage);
 	m_Flowerhyouzi = COPY_RESOURCE("Flowerhyouzi", CImage);
 	SOUND("GameBGM")->Play(true);
@@ -38,7 +40,10 @@ Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 	new FlowerManager();
 	//リザルトシーン
 	//new Result();
-
+	m_Starhyouzi.ChangeAnimation(0);
+	m_Enemyhyouzi.ChangeAnimation(0);
+	m_Enemyhyouzi2.ChangeAnimation(0);
+	m_Flowerhyouzi.ChangeAnimation(0);
 }
 
 Game::~Game()
@@ -47,21 +52,44 @@ Game::~Game()
 
 void Game::Update()
 {
-
+	GameCount++;
+	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
+	{
+		SOUND("SpeedUp")->Play(false);
+	}
+	m_Starhyouzi.UpdateAnimation();
+	m_Enemyhyouzi.UpdateAnimation();
+	m_Enemyhyouzi2.UpdateAnimation();
+	m_Flowerhyouzi.UpdateAnimation();
 }
 
 void Game::Render()
 {
-	/*m_Enemyhyouzi.SetPos(400, 150);
-	m_Enemyhyouzi.SetPos(600, 150);
+	SpeedUp.SetSize(500, 500);
+	SpeedUp.SetPos(550, 575);
+	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
+	{
+		SpeedUp.Draw();
+	}
+
+	m_Enemyhyouzi.SetSize(80, 80);
+	m_Enemyhyouzi.SetPos(550, 75);
 	m_Enemyhyouzi.Draw();
-	m_Starhyouzi.SetPos(800, 150);
+
+	m_Enemyhyouzi2.SetSize(80, 80);
+	m_Enemyhyouzi2.SetPos(700, 25);
+	m_Enemyhyouzi2.Draw();
+
+	m_Starhyouzi.SetSize(80,80);
+	m_Starhyouzi.SetPos(850, 75);
 	m_Starhyouzi.Draw();
-	m_Flowerhyouzi.SetPos(1000, 150);
-	m_Flowerhyouzi.Draw();*/
+
+	m_Flowerhyouzi.SetSize(80,80);
+	m_Flowerhyouzi.SetPos(1000, 75);
+	m_Flowerhyouzi.Draw();
 	//文字表示
-	m_Game_text.Draw(500, 150, 0, 0, 0, "+100");
-	m_Game_text.Draw(700, 150, 0, 0, 0, "+200");
-	m_Game_text.Draw(900, 150, 0, 0, 0, "+100");
-	m_Game_text.Draw(1100, 150, 0, 0, 0, "-500");
+	m_Game_text.Draw(550, 200, 0, 0, 0, "+100");
+	m_Game_text.Draw(700, 200, 0, 0, 0, "+300");
+	m_Game_text.Draw(850, 200, 0, 0, 0, "+100");
+	m_Game_text.Draw(1000, 200, 0, 0, 0, "-200");
 }

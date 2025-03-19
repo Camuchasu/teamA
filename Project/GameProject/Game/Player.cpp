@@ -76,23 +76,24 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (GameCount <= 600) {
-		m_speed = 5;
+	if (GameCount <= (60*30)) {
+		m_speed = 11;
 		m_pos.x += m_speed;
 	}
-	if (GameCount >= 600 && GameCount <1200) {
-		m_speed = 8;
+	
+	if (GameCount >= (60 * 30) && GameCount < (60 * 60)) {
+		m_speed = 14;
 		m_pos.x += m_speed;
 	}
-	if (GameCount >= 1200 && GameCount < 1800) {
-		m_speed = 10;
+	if (GameCount >= (60 * 60) && GameCount < (60 * 90)) {
+		m_speed = 16;
 		m_pos.x += m_speed;
 	}
-	if (GameCount >= 1800 && GameCount < 2400) {
-		m_speed = 15;
+	if (GameCount >= (60 * 90) && GameCount < (60 * 120)) {
+		m_speed = 18;
 		m_pos.x += m_speed;
 	}
-	if (GameCount >= 2400) {
+	if (GameCount >= (60 * 120)) {
 		m_speed = 20;
 		m_pos.x += m_speed;
 	}
