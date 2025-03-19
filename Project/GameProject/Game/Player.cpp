@@ -77,9 +77,12 @@ Player::~Player()
 void Player::Update()
 {
 	if (GameCount <= (60*30)) {
-		SOUND("SpeedUp")->Play(true);
 		m_speed = 11;
 		m_pos.x += m_speed;
+	}
+	if (GameCount == (60 * 5))
+	{
+		SOUND("SpeedUp")->Play(false);
 	}
 	if (GameCount >= (60 * 30) && GameCount < (60 * 60)) {
 		m_speed = 14;
