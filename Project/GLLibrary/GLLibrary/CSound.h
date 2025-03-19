@@ -58,7 +58,6 @@ public:
 	@return	ハンドルID
 	**/
 	int Play(bool boLoop=false,bool effect=false, const EFXEAXREVERBPROPERTIES& reverb= EFX_REVERB_PRESET_GENERIC);
-	//int PlayLoop(bool boLoop=true,bool effect = false, const EFXEAXREVERBPROPERTIES& reverb = EFX_REVERB_PRESET_GENERIC);
 	/*!
 	@brief	サウンド再開
 	@param	boLoop	[in]	ループフラグ

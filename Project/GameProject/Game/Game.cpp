@@ -19,7 +19,7 @@ Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 	m_Enemyhyouzi = COPY_RESOURCE("Enemyhyouzi", CImage);
 	m_Starhyouzi = COPY_RESOURCE("Starhyouzi", CImage);
 	m_Flowerhyouzi = COPY_RESOURCE("Flowerhyouzi", CImage);
-	SOUND("GameBGM")->Play();
+	SOUND("GameBGM")->Play(true);
 	
 	new Player(10,CVector3D(0.0f, 0.0f, 35.0f), CVector3D(64, 180, 20), CVector3D(64, 0, 20));
 	// ƒJƒ‰ƒX‚ğ¶¬
