@@ -110,6 +110,7 @@ void Init(void)
 	
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet3.png", Player::ANIM_DATA, 32, 32));
 	ADD_RESOURCE("Load", CImage::CreateImage("Image/Load1.png"));
+	ADD_RESOURCE("SpeedUp", CImage::CreateImage("Image/SpeedUp.png"));
 	SOUND("SpeedUp")->Load("Sound/SpeedUp.mp3", 1);
 
 

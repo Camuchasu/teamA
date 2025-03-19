@@ -4,6 +4,8 @@
 class Game : public Task
 {
 public:
+	int GameCount;
+	CImage SpeedUp;
 	CImage m_Enemyhyouzi;
 	CImage m_Enemyhyouzi2;
 	CImage m_Starhyouzi;

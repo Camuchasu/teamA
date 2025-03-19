@@ -20,13 +20,13 @@ enum {
 };
 enum class ETaskPrio
 {
+	Title,
 	Field,//フィールド
 	Shadow,//影
 	Other,
 	Object,//オブジェクト（プレイヤーとか敵とか）
 	UI,
 	Result,
-	Title,
 	Game,
 };
 

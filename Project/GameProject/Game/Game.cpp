@@ -14,8 +14,9 @@
 #include "Game/Result.h"
 Game::Game() : Task((int)ETaskPrio::Game, 0, eType_Game)
 , m_Game_text("C:\\Windows\\Fonts\\msgothic.ttc", 40)
+, GameCount(0)
 {
-
+	SpeedUp = COPY_RESOURCE("SpeedUp", CImage);
 	m_Enemyhyouzi = COPY_RESOURCE("Enemyhyouzi", CImage);
 	m_Enemyhyouzi2 = COPY_RESOURCE("Enemyhyouzi2", CImage);
 	m_Starhyouzi = COPY_RESOURCE("Starhyouzi", CImage);
@@ -51,6 +52,11 @@ Game::~Game()
 
 void Game::Update()
 {
+	GameCount++;
+	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
+	{
+		SOUND("SpeedUp")->Play(false);
+	}
 	m_Starhyouzi.UpdateAnimation();
 	m_Enemyhyouzi.UpdateAnimation();
 	m_Enemyhyouzi2.UpdateAnimation();
@@ -59,6 +65,13 @@ void Game::Update()
 
 void Game::Render()
 {
+	SpeedUp.SetSize(500, 500);
+	SpeedUp.SetPos(550, 575);
+	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
+	{
+		SpeedUp.Draw();
+	}
+
 	m_Enemyhyouzi.SetSize(80, 80);
 	m_Enemyhyouzi.SetPos(550, 75);
 	m_Enemyhyouzi.Draw();
