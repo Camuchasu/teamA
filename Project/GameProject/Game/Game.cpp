@@ -52,11 +52,7 @@ Game::~Game()
 
 void Game::Update()
 {
-	GameCount++;
-	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
-	{
-		SOUND("SpeedUp")->Play(false);
-	}
+
 	m_Starhyouzi.UpdateAnimation();
 	m_Enemyhyouzi.UpdateAnimation();
 	m_Enemyhyouzi2.UpdateAnimation();
@@ -67,10 +63,7 @@ void Game::Render()
 {
 	SpeedUp.SetSize(500, 500);
 	SpeedUp.SetPos(550, 575);
-	if (GameCount >= (60 * 5) && GameCount <= (60 * 6))
-	{
-		SpeedUp.Draw();
-	}
+
 
 	m_Enemyhyouzi.SetSize(80, 80);
 	m_Enemyhyouzi.SetPos(550, 75);
