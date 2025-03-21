@@ -89,7 +89,7 @@ void Game::Render()
 	m_Flowerhyouzi.Draw();
 	//•¶Žš•\Ž¦
 	m_Game_text.Draw(550, 200, 0, 0, 0, "+100");
-	m_Game_text.Draw(700, 200, 0, 0, 0, "+300");
+	m_Game_text.Draw(700, 200, 0, 0, 0, "+200");
 	m_Game_text.Draw(850, 200, 0, 0, 0, "+100");
 	m_Game_text.Draw(1000, 200, 0, 0, 0, "-200");
 }

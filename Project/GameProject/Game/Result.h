@@ -9,5 +9,6 @@ public:
 	Result();
 	void Update();
 	void Render();
-
+	//文字表示オブジェクト
+	CFont m_Result_text;
 };

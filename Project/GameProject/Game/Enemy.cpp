@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "../UI/score.h"
 #include "Game/Player.h"
+#include "Game/Effect.h"
 #define CHIP_SIZE 256		// 1コマのサイズ
 #define CENTER_POS CVector2D(128.0f, 184.0f)	// 中心座標
 
@@ -147,6 +148,12 @@ void Enemy::Collision(Task* b)
 			if (ObjectBase::CollisionCube(this, dynamic_cast<ObjectBase*>(b)))
 			{
 				b->Kill();
+				for (int i = 0; i < 10; i++) {
+					CVector3D v(Utility::Rand(-5.0f, 5.0f),
+						Utility::Rand(8.0f, 20.0f),
+						Utility::Rand(0.0f, 0.0f));
+					new Effect("MiniStar", CVector3D(m_pos), v, CVector2D(50, 50));
+				}
 				ChangeState(EState::Death);
 				if (m_Enemytype == 0) {
 					Score::AddScore(100);

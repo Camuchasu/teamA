@@ -128,13 +128,14 @@ void Init(void)
 	ADD_RESOURCE("kumo", CImage::CreateImage("Image/kumo.png"));
 	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
 	ADD_RESOURCE("Hp", CImage::CreateImage("Image/Hp.png"));
-	ADD_RESOURCE("Title", CImage::CreateImage("Image/title.png"));
+	ADD_RESOURCE("Title", CImage::CreateImage("Image/title1.png"));
 	ADD_RESOURCE("Result", CImage::CreateImage("Image/Result.png"));
 	ADD_RESOURCE("CoolTime", CImage::CreateImage("Image/gauge.png"));
 	ADD_RESOURCE("Enemyhyouzi", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));
 	ADD_RESOURCE("Enemyhyouzi2", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));
 	ADD_RESOURCE("Starhyouzi", CImage::CreateImage("Image/Star1.png", Star_anim_data, 32, 32));
 	ADD_RESOURCE("Flowerhyouzi", CImage::CreateImage("Image/Flower.png", Flower::ANIM_DATA, 32, 32));
+	ADD_RESOURCE("MiniStar", CImage::CreateImage("Image/Star1.png", Star_anim_data, 32, 32));
 	SOUND("Player_Attackv")->Load("Sound/Player_Attackv.mp3", 1);
 	SOUND("Player_Damage")->Load("Sound/Player_Damage.mp3", 1);
 	SOUND("Player_Jump")->Load("Sound/Player_Jump.wav", 1);

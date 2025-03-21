@@ -17,6 +17,7 @@ enum {
 	eType_Result,
 	eType_Game,
 	eType_Star,
+	eType_Effect,
 };
 enum class ETaskPrio
 {

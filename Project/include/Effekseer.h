@@ -1,4 +1,5 @@
-﻿
+﻿#include "Effect.h"
+
 #ifndef __EFFEKSEER_BASE_PRE_H__
 #define __EFFEKSEER_BASE_PRE_H__
 
@@ -3203,16 +3204,6 @@ public:
 	\~English	Effect parameters
 	\~Japanese	エフェクトパラメータークラス
 */
-class Effect : public IReference
-{
-protected:
-	Effect()
-	{
-	}
-	virtual ~Effect()
-	{
-	}
-
 public:
 	/**
 		@brief	エフェクトを生成する。
