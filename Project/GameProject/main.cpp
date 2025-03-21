@@ -128,7 +128,7 @@ void Init(void)
 	ADD_RESOURCE("kumo", CImage::CreateImage("Image/kumo.png"));
 	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
 	ADD_RESOURCE("Hp", CImage::CreateImage("Image/Hp.png"));
-	ADD_RESOURCE("Title", CImage::CreateImage("Image/title1.png"));
+	ADD_RESOURCE("Title", CImage::CreateImage("Image/title.png"));
 	ADD_RESOURCE("Result", CImage::CreateImage("Image/Result.png"));
 	ADD_RESOURCE("CoolTime", CImage::CreateImage("Image/gauge.png"));
 	ADD_RESOURCE("Enemyhyouzi", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 32, 32));

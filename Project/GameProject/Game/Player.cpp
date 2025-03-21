@@ -93,8 +93,12 @@ void Player::Update()
 		m_speed = 18;
 		m_pos.x += m_speed;
 	}
+	if(GameCount >= (60 * 120) && GameCount < (60 * 150)) {
+		m_speed = 19;
+		m_pos.x += m_speed;
+	}
 	if (GameCount >= (60 * 120)) {
-		m_speed = 20;
+		m_speed = 21;
 		m_pos.x += m_speed;
 	}
 		ObjectBase::m_scroll.x = m_pos.x - 1920 / 4;
